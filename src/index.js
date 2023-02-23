@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
-import '../node_modules/modern-normalize/modern-normalize.css';
+
+import 'modern-normalize';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter basename='/kiss-platform'>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
