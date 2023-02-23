@@ -1,13 +1,21 @@
 {
   "files": {
     "main.css": "/kiss-platform/static/css/main.c3d5249d.css",
-    "main.js": "/kiss-platform/static/js/main.9a24db15.js",
+    "main.js": "/kiss-platform/static/js/main.459bb253.js",
+    "static/js/765.384a6e8d.chunk.js": "/kiss-platform/static/js/765.384a6e8d.chunk.js",
+    "static/js/637.bde4d3e8.chunk.js": "/kiss-platform/static/js/637.bde4d3e8.chunk.js",
+    "static/js/800.75a98e53.chunk.js": "/kiss-platform/static/js/800.75a98e53.chunk.js",
+    "static/js/983.3d121b56.chunk.js": "/kiss-platform/static/js/983.3d121b56.chunk.js",
     "index.html": "/kiss-platform/index.html",
     "main.c3d5249d.css.map": "/kiss-platform/static/css/main.c3d5249d.css.map",
-    "main.9a24db15.js.map": "/kiss-platform/static/js/main.9a24db15.js.map"
+    "main.459bb253.js.map": "/kiss-platform/static/js/main.459bb253.js.map",
+    "765.384a6e8d.chunk.js.map": "/kiss-platform/static/js/765.384a6e8d.chunk.js.map",
+    "637.bde4d3e8.chunk.js.map": "/kiss-platform/static/js/637.bde4d3e8.chunk.js.map",
+    "800.75a98e53.chunk.js.map": "/kiss-platform/static/js/800.75a98e53.chunk.js.map",
+    "983.3d121b56.chunk.js.map": "/kiss-platform/static/js/983.3d121b56.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.9a24db15.js"
+    "static/js/main.459bb253.js"
   ]
 }
