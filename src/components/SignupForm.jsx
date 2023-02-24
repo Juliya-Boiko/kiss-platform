@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { signupUser } from "redux/authSlice";
+import { signupUser } from "redux/auth/authOperations";
 //import { useNavigate } from "react-router-dom";
 
 export const SignupForm = () => {

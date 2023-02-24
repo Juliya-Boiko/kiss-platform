@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { getUserAsync } from "api/auth";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getUserId } from "redux/authSlice";
+import { getUserId } from "redux/auth/authOperations";
 
 const InsertCodePage = () => {
   const [code, setCode] = useState(null);

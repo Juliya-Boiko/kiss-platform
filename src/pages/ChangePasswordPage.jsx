@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { changePassword } from "redux/authSlice";
+import { changePassword } from "redux/auth/authOperations";
 
 const ChangePasswordPage = () => {
   const dispatch = useDispatch();

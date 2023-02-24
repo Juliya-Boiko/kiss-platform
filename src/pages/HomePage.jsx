@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { logoutUser } from 'redux/authSlice';
+import { logoutUser } from 'redux/auth/authOperations';
 
 const HomePage = () => {
   const dispatch = useDispatch();

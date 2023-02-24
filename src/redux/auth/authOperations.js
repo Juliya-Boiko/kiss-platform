@@ -1,16 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { signupUserAsync, loginUserAsync, logoutUserAsync,
   forgotPasswordAsync, getUserAsync, changePasswordAsync
 } from "api/auth";
-
-const initialState = {
-  avatar: null,
-  name: '',
-  userId: null,
-  token: null,
-  isLogged: false,
-};
 
 export const signupUser = createAsyncThunk(
   'auth/signup',
@@ -94,49 +85,3 @@ export const changePassword = createAsyncThunk(
     }
   }
 );
-
-export const authSlice = createSlice({
-  name: 'auth',
-  initialState,
-  extraReducers: (builder) => {
-    builder
-    .addCase(signupUser.fulfilled, (state, { payload }) => {
-      state.avatar = payload.avatar;
-      state.name = payload.name;
-      state.userId = payload.userId;
-      state.token = payload.token;
-      state.isLogged = true;
-    })
-    .addCase(loginUser.fulfilled, (state, { payload }) => {
-      state.avatar = payload.avatar;
-      state.name = payload.name;
-      state.userId = payload.userId;
-      state.token = payload.token;
-      state.isLogged = true;
-    })
-    .addCase(logoutUser.fulfilled, (state) => {
-      state.avatar = null;
-      state.name = '';
-      state.userId = null;
-      state.token = null;
-      state.isLogged = false;
-    })
-    .addCase(forgotPassword.fulfilled, (state) => {
-      state.avatar = null;
-      state.name = '';
-      state.userId = null;
-      state.token = null;
-      state.isLogged = false;
-    })
-    .addCase(getUserId.fulfilled, (state, { payload }) => {
-      state.userId = payload.userId;
-    })
-    .addCase(changePassword.fulfilled, (state, { payload }) => {
-      state.avatar = payload.avatar;
-      state.name = payload.name;
-      state.userId = payload.userId;
-      state.token = payload.token;
-      state.isLogged = true;
-    })
-  }
-})
