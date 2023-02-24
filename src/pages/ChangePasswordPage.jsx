@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { changePasswordAsync } from "api/auth";
 
 const ChangePasswordPage = () => {
   const navigate = useNavigate();
@@ -6,13 +7,15 @@ const ChangePasswordPage = () => {
   const changeHandler = (e) => {
     e.preventDefault();
     console.log('Password changed');
-    navigate('/homepage');
+    changePasswordAsync();
+   // navigate('/homepage');
   }
 
   return (
     <div>
       <h1>Change Password Form</h1>
-      <button type="submit" onClick={changeHandler}>Confirm</button>
+      <input type="text" />
+      <button type="submit" onClick={changeHandler}>Change password</button>
     </div>
   );
 };

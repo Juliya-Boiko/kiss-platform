@@ -39,14 +39,18 @@ export const forgotPasswordAsync = async () => {
 
 export const getUserAsync = async () => {
   try {
-    const data = await axios.get('/auth/current', {
-      body: {
-        email: "BoikoJuliya2707@gmail.com"
-      }
-    });
-    console.log(data);
+    const { data } = await axios.get('/auth/BoikoJuliya2707@gmail.com');
+    return data;
   } catch (error) {
     console.log('error--->', error);
   }
-  // return data;
+};
+
+export const changePasswordAsync = async () => {
+  const { data } = await axios.put('/auth/update/63f8a5c2d2205137b459e8c2', {
+    password: "BoikoJuliya"
+  });
+  console.log('changePasswordAsync --->', data.updatedUser);
+  token.set(data.updatedUser.token);
+  return data.updatedUser;
 };

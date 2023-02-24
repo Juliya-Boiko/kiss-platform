@@ -65,16 +65,14 @@ export const forgotPassword = createAsyncThunk(
   }
 );
 
-export const getUser = createAsyncThunk(
+export const getUserId = createAsyncThunk(
   'auth/getUser',
   async (values) => {
     try {
       const data = await getUserAsync();
-      // Notify.success('Registration successful!');
       return data;
-      //console.log(data);
     } catch (error) {
-      console.log(error);
+      console.log('getUserId ->', error);
       // Notify.failure(error.message);
     }
   }
@@ -113,15 +111,8 @@ export const authSlice = createSlice({
       state.token = null;
       state.isLogged = false;
     })
+    .addCase(getUserId.fulfilled, (state, { payload }) => {
+      state.userId = payload.userId;
+    })
   }
 })
-
-  // extraReducers: {
-  //   [signupUser.fulfilled](state, { payload }) {
-  //     state.avatar = payload.avatar;
-  //     state.name = payload.name;
-  //     state.userId = payload.userId;
-  //     state.token = payload.token;
-  //     state.isLogged = true;
-  //   }
-  // }
