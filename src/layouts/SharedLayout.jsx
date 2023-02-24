@@ -1,10 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
+// eslint-disable-next-line
 import { routes } from 'constants/routes';
+// eslint-disable-next-line
 import { NavLink } from 'react-router-dom';
 
 const SharedLayout = () => {
+  // eslint-disable-next-line
   const isLogged = useSelector(state => state.auth.isLogged);
 
   // console.log(isLogged);

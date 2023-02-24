@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import { forgotPasswordAsync } from "api/auth";
 
 const ForgotPasswordPage = () => {
   const navigate = useNavigate();
 
-  const sendCodeHandler = (e) => {
+  const sendCodeHandler = async (e) => {
     e.preventDefault();
-    console.log('Sending code');
+    console.log('Sending code click');
+    await forgotPasswordAsync();
     navigate('/insert-code');
-    // <Navigate to="/insert-code" />
   }
 
   return (

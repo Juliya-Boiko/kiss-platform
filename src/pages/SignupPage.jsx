@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import { routes } from 'constants/routes';
 import { SignupForm } from 'components/SignupForm';
 
 const SignupPage = () => {

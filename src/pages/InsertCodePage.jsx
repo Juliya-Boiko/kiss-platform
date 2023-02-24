@@ -1,18 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import { routes } from "constants/routes";
+// import { useNavigate } from "react-router-dom";
+import { getUserAsync } from "api/auth";
 
 const InsertCodePage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  getUserAsync();
 
   const confirmHandler = (e) => {
     e.preventDefault();
     console.log('Confirm code');
-    navigate('/change-password');
+   // navigate('/change-password');
   }
 
   return (
     <div>
-      <h1>InsertPassword Form</h1>
+      <h1>Insert code Form</h1>
+      <input type="text" />
       <button type="submit" onClick={confirmHandler}>Confirm</button>
     </div>
   );
