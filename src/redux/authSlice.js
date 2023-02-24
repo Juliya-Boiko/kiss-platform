@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signupUserAsync, loginUserAsync, logoutUserAsync, forgotPasswordAsync, getUserAsync } from "api/auth";
+import { signupUserAsync, loginUserAsync, logoutUserAsync,
+  forgotPasswordAsync, getUserAsync, changePasswordAsync
+} from "api/auth";
 
 const initialState = {
   avatar: null,
@@ -78,6 +80,21 @@ export const getUserId = createAsyncThunk(
   }
 );
 
+export const changePassword = createAsyncThunk(
+  'auth/changePassword',
+  async (values) => {
+    try {
+      const data = await changePasswordAsync();
+      // Notify.success('Registration successful!');
+      console.log('auth/changePassword --->',data);
+      return data;
+    } catch (error) {
+      console.log(error);
+      // Notify.failure(error.message);
+    }
+  }
+);
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -113,6 +130,13 @@ export const authSlice = createSlice({
     })
     .addCase(getUserId.fulfilled, (state, { payload }) => {
       state.userId = payload.userId;
+    })
+    .addCase(changePassword.fulfilled, (state, { payload }) => {
+      state.avatar = payload.avatar;
+      state.name = payload.name;
+      state.userId = payload.userId;
+      state.token = payload.token;
+      state.isLogged = true;
     })
   }
 })

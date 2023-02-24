@@ -50,7 +50,7 @@ export const changePasswordAsync = async () => {
   const { data } = await axios.put('/auth/update/63f8a5c2d2205137b459e8c2', {
     password: "BoikoJuliya"
   });
-  console.log('changePasswordAsync --->', data.updatedUser);
-  token.set(data.updatedUser.token);
-  return data.updatedUser;
+ // console.log('changePasswordAsync --->', data);
+  token.set(data.token);
+  return data;
 };

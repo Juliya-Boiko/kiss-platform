@@ -1,14 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import { changePasswordAsync } from "api/auth";
+import { useDispatch } from "react-redux";
+import { changePassword } from "redux/authSlice";
 
 const ChangePasswordPage = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const changeHandler = (e) => {
     e.preventDefault();
     console.log('Password changed');
-    changePasswordAsync();
-   // navigate('/homepage');
+    dispatch(changePassword());
   }
 
   return (
