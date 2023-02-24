@@ -27,17 +27,15 @@ export const App = () => {
           <PublicRoute restricted><SignupPage /></PublicRoute>}
         />
         <Route path="forgot-password" element={
-          <ForgotPasswordPage />}
+          <PublicRoute restricted><ForgotPasswordPage /></PublicRoute>}
         />
         <Route path="insert-code" element={
-          <InsertCodePage />}
+          <PublicRoute restricted><InsertCodePage /></PublicRoute>}
         />
         <Route path="change-password" element={
           <PublicRoute restricted><ChangePasswordPage /></PublicRoute>}
         />
-        <Route path="homepage" element={
-          <PrivateRoute><HomePage /></PrivateRoute>}
-        >
+        <Route path="homepage" element={<PrivateRoute><HomePage /></PrivateRoute>}>
           <Route index element={<StatisticPage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="create" element={<CreatePage />} />

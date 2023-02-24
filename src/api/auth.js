@@ -20,7 +20,7 @@ export const loginUserAsync = async () => {
     email: "BoikoJuliya2707@gmail.com",
     password: "BoikoJuliya"
   });
-  console.log('loginUserAsync --->', data);
+  //console.log('loginUserAsync --->', data);
   token.set(data.token);
   return data;
 };
