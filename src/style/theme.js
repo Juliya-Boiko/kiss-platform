@@ -8,13 +8,13 @@ export const theme = {
       // white: '#ffffff',
       // black: '#333333',
       // yellow: '#FFC639',
-      // green: '#6BC2BB',
+      green: '#6BC2BB',
       // red: '#DB4D45'
     },
     grayScale: {
       // gray50: '#858FA6',
       // gray40: '#9EA5B8',
-      // gray30: '#B6BCC9',
+      gray30: '#B6BCC9',
       // gray20: '#CED2DB',
       // gray10: '#CED2DB',
       // gray5: '#FAFAFC'
@@ -32,6 +32,7 @@ export const theme = {
     xxl: '200px',
   },
   fontSize: {
+    xs: '14px',
     s: '18px',
     m: '36px',
     l: '42px'

@@ -1,15 +1,19 @@
-import { NavLink } from 'react-router-dom';
 import { SignupForm } from 'components/SignupForm';
+import { AuthPage, AuthPageTitle, AuthPageLink, AuthPageLogo, AuthPageText } from './AuthPage.styled';
+import { Logo } from 'components/Logo/Logo';
 
 const SignupPage = () => {
   return (
-    <div>
-      <p>
-        You have an account?
-        <NavLink to="/login">Login</NavLink>
-      </p>
+    <AuthPage>
+      <AuthPageTitle>
+        You have an account? <AuthPageLink to="/login">Login</AuthPageLink>
+      </AuthPageTitle>
+      <AuthPageLogo>
+        <Logo width="166" heigth="66" />
+      </AuthPageLogo>
+      <AuthPageText>Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias</AuthPageText>
       <SignupForm />
-    </div>
+    </AuthPage>
   );
 };
 

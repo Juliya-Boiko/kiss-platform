@@ -1,33 +1,31 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import { useSelector } from 'react-redux';
-// eslint-disable-next-line
-import { routes } from 'constants/routes';
-// eslint-disable-next-line
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
+
+const MainContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 ${p => p.theme.spaces.xs};
+  outline: 1px solid red;
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.mobile}) {
+    width: ${p => p.theme.breakpoints.mobile};
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+    width: ${p => p.theme.breakpoints.desktop};
+    padding: 0 ${p => p.theme.spaces.xl};
+  }
+`;
 
 const SharedLayout = () => {
-  // eslint-disable-next-line
-  const isLogged = useSelector(state => state.auth.isLogged);
-
-  // console.log(isLogged);
   return (
     <div>
-      <p>shared layout will be page container</p>
-      {/* <nav>
-        <NavLink to={routes.HOMEPAGE}>Homepage</NavLink>
-        <NavLink to={routes.SIGNUP}>Signup</NavLink>
-        <NavLink to={routes.LOGIN}>Login</NavLink>
-      </nav> */}
       <Suspense fallback={<p>Loading...</p>}>
-        {/* {isLogged
-          ? <nav>
-              <NavLink to={routes.HOMEPAGE}>Homepage</NavLink>
-              <NavLink to={routes.SIGNUP}>Signup</NavLink>
-              <NavLink to={routes.LOGIN}>Login</NavLink>
-            </nav>
-          : null} */}
-        <Outlet />
+        <MainContainer>
+          <Outlet />
+        </MainContainer>
       </Suspense>
     </div>
   );

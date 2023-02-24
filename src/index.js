@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import { Suspense } from 'react';
 import { theme } from 'style/theme';
-
+import { Loader } from 'components/Loader/Loader';
 import 'modern-normalize';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<Loader size='100' />}>
             <BrowserRouter basename='/kiss-platform'>
               <App />
             </BrowserRouter>
