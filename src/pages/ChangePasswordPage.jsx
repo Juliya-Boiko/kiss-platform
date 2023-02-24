@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { routes } from "constants/routes";
 
 const ChangePasswordPage = () => {
   const navigate = useNavigate();
@@ -7,7 +6,7 @@ const ChangePasswordPage = () => {
   const changeHandler = (e) => {
     e.preventDefault();
     console.log('Password changed');
-    navigate(routes.HOMEPAGE);
+    navigate('/homepage');
   }
 
   return (

@@ -1,18 +1,30 @@
-import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
 import { routes } from 'constants/routes';
+import { NavLink } from 'react-router-dom';
 
 const SharedLayout = () => {
+  const isLogged = useSelector(state => state.auth.isLogged);
+
+  // console.log(isLogged);
   return (
     <div>
-      <nav>
+      <p>shared layout will be page container</p>
+      {/* <nav>
         <NavLink to={routes.HOMEPAGE}>Homepage</NavLink>
         <NavLink to={routes.SIGNUP}>Signup</NavLink>
         <NavLink to={routes.LOGIN}>Login</NavLink>
-      </nav>
+      </nav> */}
       <Suspense fallback={<p>Loading...</p>}>
-      <Outlet />
+        {/* {isLogged
+          ? <nav>
+              <NavLink to={routes.HOMEPAGE}>Homepage</NavLink>
+              <NavLink to={routes.SIGNUP}>Signup</NavLink>
+              <NavLink to={routes.LOGIN}>Login</NavLink>
+            </nav>
+          : null} */}
+        <Outlet />
       </Suspense>
     </div>
   );

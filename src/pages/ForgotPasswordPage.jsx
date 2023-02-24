@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { routes } from "constants/routes";
 
 const ForgotPasswordPage = () => {
   const navigate = useNavigate();
@@ -7,7 +6,8 @@ const ForgotPasswordPage = () => {
   const sendCodeHandler = (e) => {
     e.preventDefault();
     console.log('Sending code');
-    navigate(routes.PASSWORD_INSERT);
+    navigate('/insert-code');
+    // <Navigate to="/insert-code" />
   }
 
   return (

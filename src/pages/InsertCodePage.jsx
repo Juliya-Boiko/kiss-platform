@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { routes } from "constants/routes";
 
-const InsertPasswordPage = () => {
+const InsertCodePage = () => {
   const navigate = useNavigate();
 
   const confirmHandler = (e) => {
     e.preventDefault();
     console.log('Confirm code');
-    navigate(routes.PASSWORD_CHANGE);
+    navigate('/change-password');
   }
 
   return (
@@ -18,4 +18,4 @@ const InsertPasswordPage = () => {
   );
 };
 
-export default InsertPasswordPage;
+export default InsertCodePage;

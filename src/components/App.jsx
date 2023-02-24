@@ -1,26 +1,36 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routes } from 'constants/routes';
+import { PublicRoute } from 'hocs/PublicRoute';
+import { PrivateRoute } from 'hocs/PrivateRoute';
+import { Navigate } from 'react-router-dom';
 
 const SignupPage = lazy(() => import('../pages/SignupPage'));
 const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage'));
-const InsertPasswordPage = lazy(() => import('../pages/InsertPasswordPage'));
+const InsertCodePage = lazy(() => import('../pages/InsertCodePage'));
 const ChangePasswordPage = lazy(() => import('../pages/ChangePasswordPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const SharedLayout = lazy(() => import('../layouts/SharedLayout'));
 const HomePage = lazy(() => import('../pages/HomePage'));
-
+const StatisticPage = lazy(() => import('../pages/StatisticPage'));
+const CreatePage = lazy(() => import('../pages/CreatePage'));
+const ProfilePage = lazy(() => import('../pages/ProfilePage'));
 
 export const App = () => {
   return (
     <Routes>
-      <Route path={routes.HOMEPAGE} element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path={routes.SIGNUP} element={<SignupPage />} />
-        <Route path={routes.LOGIN} element={<LoginPage />} />
-        <Route path={routes.PASSWORD_FORGOT} element={<ForgotPasswordPage />} />
-        <Route path={routes.PASSWORD_INSERT} element={<InsertPasswordPage />} />
-        <Route path={routes.PASSWORD_CHANGE} element={<ChangePasswordPage />} />
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Navigate to="/login" />} />
+        <Route path="login" element={<LoginPage />}/>
+        <Route path="signup" element={<SignupPage />} />
+        <Route path="forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="insert-code" element={<InsertCodePage />} />
+        <Route path="change-password" element={<ChangePasswordPage />} />
+        <Route path="homepage" element={<HomePage />}>
+          <Route index element={<StatisticPage />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="create" element={<CreatePage />} />
+          <Route path="statistic" element={<StatisticPage />} />
+        </Route>
       </Route>
     </Routes>
   );
