@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/373.65f0ab01.chunk.js","mappings":"4JAOA,UANoB,WAClB,OACE,wCAEH,C","sources":["pages/ProfilePage.jsx"],"sourcesContent":["\nconst ProfilePage = () => {\n  return (\n    <div>ProfilePage</div>\n  );\n};\n\nexport default ProfilePage;"],"names":[],"sourceRoot":""}
