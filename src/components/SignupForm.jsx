@@ -1,16 +1,16 @@
-//import { useDispatch } from "react-redux";
-//import { signupUser } from "redux/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signupUser } from "redux/authSlice";
+//import { useNavigate } from "react-router-dom";
 
 export const SignupForm = () => {
-  //const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  //const navigate = useNavigate();
 
   const signupHandler = (e) => {
     e.preventDefault();
     console.log('submit');
-    navigate('/homepage');
-    //dispatch(signupUser());
+    //navigate('/homepage');
+    dispatch(signupUser());
   };
 
   return (

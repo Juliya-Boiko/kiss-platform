@@ -20,12 +20,12 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Navigate to="/login" />} />
-        <Route path="login" element={<LoginPage />}/>
-        <Route path="signup" element={<SignupPage />} />
+        <Route path="login" element={<PublicRoute restricted><LoginPage /></PublicRoute>}/>
+        <Route path="signup" element={<PublicRoute restricted><SignupPage /></PublicRoute>} />
         <Route path="forgot-password" element={<ForgotPasswordPage />} />
         <Route path="insert-code" element={<InsertCodePage />} />
         <Route path="change-password" element={<ChangePasswordPage />} />
-        <Route path="homepage" element={<HomePage />}>
+        <Route path="homepage" element={<PrivateRoute><HomePage /></PrivateRoute>}>
           <Route index element={<StatisticPage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="create" element={<CreatePage />} />
