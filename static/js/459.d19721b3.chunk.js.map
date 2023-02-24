@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/459.d19721b3.chunk.js","mappings":"0JAMA,UANmB,WACjB,OACE,uCAEH,C","sources":["pages/CreatePage.jsx"],"sourcesContent":["const CreatePage = () => {\n  return (\n    <div>CreatePage</div>\n  );\n};\n\nexport default CreatePage;"],"names":[],"sourceRoot":""}

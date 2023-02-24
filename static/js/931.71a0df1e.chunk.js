@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[931],{931:function(e,t,n){n.r(t);var o=n(689),r=n(155),c=n(184);t.default=function(){var e=(0,o.s0)();return(0,c.jsxs)("div",{children:["ForgotPasswordPage",(0,c.jsx)("button",{type:"submit",onClick:function(t){t.preventDefault(),console.log("Sending code"),e(r._.PASSWORD_INSERT)},children:"Send code"})]})}}}]);
-//# sourceMappingURL=931.71a0df1e.chunk.js.map
