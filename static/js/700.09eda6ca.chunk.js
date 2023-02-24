@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[700],{7700:function(e,n,t){t.r(n);var r=t(7689),o=t(184);n.default=function(){var e=(0,r.s0)();return(0,o.jsxs)("div",{children:[(0,o.jsx)("h1",{children:"Change Password Form"}),(0,o.jsx)("button",{type:"submit",onClick:function(n){n.preventDefault(),console.log("Password changed"),e("/homepage")},children:"Confirm"})]})}}}]);
-//# sourceMappingURL=700.09eda6ca.chunk.js.map
