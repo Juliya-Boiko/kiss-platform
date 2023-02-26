@@ -5,7 +5,6 @@ export const InputWrapper = styled.div`
   width: 100%;
   position: relative;
   margin: 0 0 ${p=> p.theme.spaces.xs} 0;
-  //outline: 1px dotted red;
   color: ${p => p.color};
 `;
 
@@ -40,5 +39,4 @@ export const InputStyled = styled.input`
     padding: 0 3px;
     font-size: 10px;
   }
-
 `;

@@ -1,5 +1,5 @@
 import { SignupForm } from 'components/auth/SignupForm';
-import { AuthPage, AuthPageTitle, AuthPageLink, AuthPageLogo, AuthPageText } from './AuthPage.styled';
+import { AuthPage, AuthPageTitle, AuthPageLink, AuthPageLogo, AuthPageText } from '../components/auth/common/AuthPage.styled';
 import { Logo } from 'components/Logo/Logo';
 
 const SignupPage = () => {

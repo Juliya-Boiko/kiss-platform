@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ButtonPrimary } from "components/common/ButtonPrimary";
-import { ButtonSecondary } from "components/common/ButtonSecondary";
+import { ButtonPrimary } from "components/buttons/ButtonPrimary";
+import { ButtonSecondary } from "components/buttons/ButtonSecondary";
 
 
 const TermsTitle = styled.h2`

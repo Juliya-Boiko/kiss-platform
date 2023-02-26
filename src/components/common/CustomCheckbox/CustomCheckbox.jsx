@@ -1,6 +1,6 @@
 import { CheckboxLabel, CheckboxInput, CheckboxIcon } from "./CustomCheckbox.styled";
 
-export const CustomCheckbox = ({ value, name, onChange, setShowModal }) => { 
+export const CustomCheckbox = ({ name, onChange, setShowModal }) => { 
   return (
     <CheckboxLabel>
       <CheckboxInput type="checkbox" name={name} onChange={onChange} />
