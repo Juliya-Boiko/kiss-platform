@@ -5,22 +5,24 @@ export const theme = {
   },
   colors: {
     brand: {
-      // white: '#ffffff',
+      white: '#ffffff',
       // black: '#333333',
       // yellow: '#FFC639',
       green: '#6BC2BB',
       // red: '#DB4D45'
     },
     grayScale: {
-      // gray50: '#858FA6',
-      // gray40: '#9EA5B8',
+      gray50: '#858FA6',
+      gray40: '#9EA5B8',
       gray30: '#B6BCC9',
-      // gray20: '#CED2DB',
-      // gray10: '#CED2DB',
+      gray20: '#CED2DB',
+      gray10: '#CED2DB',
       // gray5: '#FAFAFC'
     },
     complementary: {},
-    semantic: {},
+    support: {
+      error: '#F03D3D'
+    },
   },
   spaces: {
     xxs: '10px',
@@ -49,5 +51,8 @@ export const theme = {
     l: '',
     xl: '',
     xxl: '',
+  },
+  borderRadius: {
+    s: '5px',
   }
 };
