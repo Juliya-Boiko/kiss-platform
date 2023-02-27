@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { Formik, Form } from "formik";
+import { Formik } from "formik";
 import { emailSchema } from "schemas/emailSchema";
 import { CustomInput } from "components/common/CustomInput/CustomInput";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 //import { forgotPasswordAsync } from "api/auth";
+import { CustomForm } from "./common/CustomForm.styled";
 
 const initialValues = {
   email: '',
@@ -25,10 +26,10 @@ export const EmailForm = () => {
       onSubmit={sendEmailHandler}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
-        <Form>
+        <CustomForm>
           <CustomInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
           <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Send Code" width="100%" />
-        </Form>
+        </CustomForm>
       )}
     </Formik>
   );

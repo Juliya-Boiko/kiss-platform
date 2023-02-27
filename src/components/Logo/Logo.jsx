@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 0 auto ${p => p.margin} auto;
+  margin: 0 0 ${p => p.margin} 0;
 `;
 
 export const Logo = ({ width, height, margin }) => {

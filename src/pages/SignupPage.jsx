@@ -1,16 +1,11 @@
-import { SignupForm } from 'components/auth/forms/SignupForm';
-import { AuthPage } from 'components/auth/common/AuthPage/AuthPage';
-import { AuthHeader } from 'components/auth/common/AuthHeader/AuthHeader';
-import { AuthContent } from 'components/auth/common/AuthPage/AuthPage.styled';
+import { SignupForm } from "components/forms/SignupForm";
+import { AuthWrapper } from "components/auth/AuthWrapper";
 
 const SignupPage = () => {
   return (
-    <AuthPage>
-      <AuthContent>
-        <AuthHeader title="You have an account?" link="/login" navTo="Login" />
-        <SignupForm />
-      </AuthContent>
-    </AuthPage>
+    <AuthWrapper navTitle="You have an account?" navLink="/login" navTo="Login">
+      <SignupForm />
+    </AuthWrapper>
   );
 };
 

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/buttons/ButtonSecondary";
 
-
 const TermsTitle = styled.h2`
   margin: 0 0 ${p => p.theme.spaces.xs} 0;
   font-weight: ${p => p.theme.fontWeight.bold};
@@ -22,9 +21,9 @@ const TermsText = styled.div`
 `;
 
 const TermsActions = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const TermsAgreement = ({ onAgree, onDecline }) => {

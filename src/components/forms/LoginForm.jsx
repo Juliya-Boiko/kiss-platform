@@ -1,9 +1,10 @@
 // import { useDispatch } from "react-redux";
 // import { loginUser } from "redux/auth/authOperations";
-import { Formik, Form } from "formik";
+import { Formik } from "formik";
 import { CustomInput } from "components/common/CustomInput/CustomInput";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { loginSchema } from "schemas/loginSchema";
+import { CustomForm } from "./common/CustomForm.styled";
 
 const initialValues = {
   email: '',
@@ -26,11 +27,11 @@ export const LoginForm = () => {
       validationSchema={loginSchema}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
-        <Form>
+        <CustomForm>
           <CustomInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
           <CustomInput input="password" type="password" value={values.password} onChange={handleChange} error={errors.password} />
           <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Login" width="100%" />
-        </Form>
+        </CustomForm>
       )}
     </Formik>
   );

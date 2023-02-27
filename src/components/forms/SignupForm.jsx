@@ -1,13 +1,14 @@
 // import { useDispatch } from "react-redux";
 // import { signupUser } from "redux/auth/authOperations";
 import { CustomInput } from "components/common/CustomInput/CustomInput";
-import { Formik, Form } from "formik";
+import { Formik } from "formik";
 import { sighupSchema } from "schemas/signupSchema";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { CustomCheckbox } from "components/common/CustomCheckbox/CustomCheckbox";
 import { useState } from "react";
 import { Modal } from "components/common/Modal/Modal";
 import { TermsAgreement } from "components/auth/TermsAgreement";
+import { CustomForm } from "./common/CustomForm.styled";
 
 const initialValues = {
   email: '',
@@ -33,7 +34,7 @@ export const SignupForm = () => {
       validationSchema={sighupSchema}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
-        <Form>
+        <CustomForm>
           <CustomInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
           <CustomInput input="name" type="text" value={values.name} onChange={handleChange} error={errors.name} />
           <CustomInput input="password" type="password" value={values.password} onChange={handleChange} error={errors.password} />
@@ -52,7 +53,7 @@ export const SignupForm = () => {
               />
             </Modal>
           }
-        </Form>
+        </CustomForm>
       )}
     </Formik>
   );
