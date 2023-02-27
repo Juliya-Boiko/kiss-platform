@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 
 const initialState = [
   { id: 0, value: '' },
@@ -10,35 +11,62 @@ const initialState = [
   { id: 5, value: '' },
 ]
 
+const Code = styled.div`
+  display: flex;
+  align-items: center;
+  margin: -3px -3px 20px -3px;
+`;
+
 const Input = styled.input`
+  width: calc((100% / 6) - 6px);
+  padding: 14px;
+  margin: 3px;
+  text-align: center;
+  outline: none;
+  border: 0.670481px solid #CED2DB;
+  border-radius: 3.3524px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #B6BCC9;
   &:focus {
-    background-color: lightblue;
+    outline: 1px solid ${p => p.theme.colors.brand.green};
   }
-  &:focus-visible {
-    background-color: lightblue;
+  @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+    padding: 24px;
   }
 `;
 
 export const CodeForm = () => {
   const [code, setCode] = useState(initialState);
   const [focused] = useState(0);
+  const [valid, setValid] = useState(false);
 
   if (code[5].value.length === 1) {
     const currentInput = document.querySelector(`input[name=input-5]`);
     currentInput.blur();
   }
+
+  useEffect(() => {
+    const every = code.every(item => item.value.length === 1);
+    every ? setValid(true) : setValid(false);
+  }, [code]);
   
   const inputHandler = (e, id) => {
-    const data = [...code];
-    const filtered = data.map(item => {
-      if (item.id === id) {
-        return { id, value: e.target.value }
-      }
-      return item;
-    })
-    setCode(filtered);
+    const number = e.target.value;
+    if (isNaN(+number)) {
+      return;
+    }
 
-    if (e.target.value.length === 1) {
+    if (number.length > 1) {
+      return;
+    }
+
+    const updated = [...code].map(item => {
+      return item.id === id ? { id, value: number } : item;
+    })
+    setCode(updated);
+
+    if (number.length === 1) {
       const nextSibling = document.querySelector(`input[name=input-${id + 1}]`);
       if (nextSibling !== null) {
         nextSibling.focus();
@@ -46,21 +74,14 @@ export const CodeForm = () => {
     }
   };
 
-  const focusGetter = (id, current) => {
-    if (id === current) {
-      return true;
-    }
-    return false;
-  }
-
   return (
     <form>
-      <h1>Insert code Form</h1>
-      {code.map(({ id, value }) => {
-        return <Input key={id} type='text' name={`input-${id}`} autoFocus={focusGetter(id, focused)} value={value} onChange={(e) => inputHandler(e, id)} />
-      })}
-      {/* <input type="text" value={inputValue} onChange={inputHandler} />
-      <button type="submit" onClick={confirmHandler}>Confirm</button> */}
+      <Code>
+        {code.map(({ id, value }) => {
+          return <Input key={id} type='text' name={`input-${id}`} autoFocus={id === focused ? true : false} value={value} onChange={(e) => inputHandler(e, id)} />
+        })}
+      </Code>
+      <ButtonPrimary type="submit" disabled={!valid} title="Send Code" width="100%" />
     </form>
   );
 };
