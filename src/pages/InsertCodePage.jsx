@@ -3,6 +3,8 @@ import { getUserAsync } from "api/auth";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getUserId } from "redux/auth/authOperations";
+import { VerifyWrapper } from "components/auth/VerifyWrapper";
+import { CodeForm } from "components/forms/CodeForm";
 
 const InsertCodePage = () => {
   const [code, setCode] = useState(null);
@@ -33,11 +35,11 @@ const InsertCodePage = () => {
   }
 
   return (
-    <div>
-      <h1>Insert code Form</h1>
-      <input type="text" value={inputValue} onChange={inputHandler} />
-      <button type="submit" onClick={confirmHandler}>Confirm</button>
-    </div>
+    <VerifyWrapper backTo="/forgot-password">
+      <CodeForm />
+      {/* <input type="text" value={inputValue} onChange={inputHandler} />
+      <button type="submit" onClick={confirmHandler}>Confirm</button> */}
+    </VerifyWrapper>
   );
 };
 
