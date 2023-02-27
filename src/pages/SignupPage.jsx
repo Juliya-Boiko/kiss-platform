@@ -1,18 +1,15 @@
 import { SignupForm } from 'components/auth/SignupForm';
-import { AuthPage, AuthPageTitle, AuthPageLink, AuthPageLogo, AuthPageText } from '../components/auth/common/AuthPage.styled';
-import { Logo } from 'components/Logo/Logo';
+import { AuthPage } from 'components/auth/common/AuthPage/AuthPage';
+import { AuthHeader } from 'components/auth/common/AuthHeader/AuthHeader';
+import { AuthContent } from 'components/auth/common/AuthPage/AuthPage.styled';
 
 const SignupPage = () => {
   return (
     <AuthPage>
-      <AuthPageTitle>
-        You have an account? <AuthPageLink to="/login">Login</AuthPageLink>
-      </AuthPageTitle>
-      <AuthPageLogo>
-        <Logo width="166" heigth="66" />
-      </AuthPageLogo>
-      <AuthPageText>Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias</AuthPageText>
-      <SignupForm />
+      <AuthContent>
+        <AuthHeader title="You have an account?" link="/login" navTo="Login" />
+        <SignupForm />
+      </AuthContent>
     </AuthPage>
   );
 };

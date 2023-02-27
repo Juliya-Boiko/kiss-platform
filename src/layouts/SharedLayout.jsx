@@ -6,7 +6,7 @@ const MainContainer = styled.div`
   width: 100%;
   height: 100vh;
   margin: 0 auto;
-  padding: 0 ${p => p.theme.spaces.xs};
+  //padding: 0 ${p => p.theme.spaces.xs};
   outline: 1px solid red;
 
   @media screen and (min-width: ${p => p.theme.breakpoints.mobile}) {
@@ -23,9 +23,9 @@ const SharedLayout = () => {
   return (
     <div>
       <Suspense fallback={<p>Loading...</p>}>
-        <MainContainer>
+        {/* <MainContainer> */}
           <Outlet />
-        </MainContainer>
+        {/* </MainContainer> */}
       </Suspense>
     </div>
   );
