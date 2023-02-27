@@ -69,10 +69,25 @@ export const AuthLink = styled(NavLink)`
 `;
 
 export const AuthContent = styled.div`
-  width: 280px;
-
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     width: 450px;
+  }
+`;
+
+export const AuthAddictionalLink = styled(NavLink)`
+  display: block ;
+  margin: ${p => p.theme.spaces.xs} 0 0 0;
+  text-align: end;
+  font-weight: ${p => p.theme.fontWeight.medium};
+  font-size: ${p => p.theme.fontSize.xs};
+  line-height: 1.2;
+  color: ${p => p.theme.colors.brand.green};
+  @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+    font-size: ${p => p.theme.fontSize.s};
   }
 `;
 

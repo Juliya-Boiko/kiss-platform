@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const AuthHeaderLogo = styled.div`
-  margin: 0 0 ${p => p.theme.spaces.m} 0 ;
-`;
-
 export const AuthHeaderNav = styled.p`
   margin: 0 0 ${p => p.theme.spaces.s} 0 ;
   font-weight: ${p => p.theme.fontWeight.medium};

@@ -1,4 +1,4 @@
-import { SignupForm } from 'components/auth/SignupForm';
+import { SignupForm } from 'components/auth/forms/SignupForm';
 import { AuthPage } from 'components/auth/common/AuthPage/AuthPage';
 import { AuthHeader } from 'components/auth/common/AuthHeader/AuthHeader';
 import { AuthContent } from 'components/auth/common/AuthPage/AuthPage.styled';

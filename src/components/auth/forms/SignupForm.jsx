@@ -32,7 +32,7 @@ export const SignupForm = () => {
       onSubmit={signupHandler}
       validationSchema={sighupSchema}
     >
-      {({ values, handleChange, errors, isValid, dirty, setFieldTouched }) => (
+      {({ values, handleChange, errors, isValid, dirty }) => (
         <Form>
           <CustomInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
           <CustomInput input="name" type="text" value={values.name} onChange={handleChange} error={errors.name} />

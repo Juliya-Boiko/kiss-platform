@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import styled from "styled-components";
 
+// eslint-disable-next-line
 const MainContainer = styled.div`
   width: 100%;
   height: 100vh;
