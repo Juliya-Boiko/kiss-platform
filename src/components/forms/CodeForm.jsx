@@ -1,3 +1,8 @@
+import { useNavigate } from "react-router-dom";
+// import { getUserAsync } from "api/auth";
+// import { useEffect, useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { getUserId } from "redux/auth/authOperations";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
@@ -37,6 +42,8 @@ const Input = styled.input`
 `;
 
 export const CodeForm = () => {
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
   const [code, setCode] = useState(initialState);
   const [focused] = useState(0);
   const [valid, setValid] = useState(false);
@@ -74,8 +81,21 @@ export const CodeForm = () => {
     }
   };
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const value = code.map(item => item.value).join('');
+    console.log(value);
+    // if (code === inputValue) {
+    //   dispatch(getUserId());
+    navigate('/change-password')
+    // } else {
+    //   console.log('NOT right code');
+    //   console.log('right code--->', code);
+    // }
+  }
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <Code>
         {code.map(({ id, value }) => {
           return <Input key={id} type='text' name={`input-${id}`} autoFocus={id === focused ? true : false} value={value} onChange={(e) => inputHandler(e, id)} />
