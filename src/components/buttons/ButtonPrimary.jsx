@@ -13,7 +13,7 @@ const Button = styled.button`
   border-radius: ${p => p.theme.borderRadius.s};
   color: ${p => p.theme.colors.brand.white};
   background-color: ${p => p.theme.colors.brand.green};
-
+  cursor: pointer;
   &:disabled {
     color: ${p => p.theme.colors.grayScale.gray40};
     background-color: ${p => p.theme.colors.grayScale.gray10};

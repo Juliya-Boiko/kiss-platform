@@ -13,13 +13,3 @@ export const Backdrop = styled.div`
   align-items: center;
   background-color: ${p => p.theme.colors.brand.white};
 `;
-
-export const CloseButton = styled.button`
-  position: absolute;
-  top: ${p => p.theme.spaces.xs};
-  right: ${p => p.theme.spaces.xs};
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  color: ${p => p.theme.colors.grayScale.gray50};
-`;

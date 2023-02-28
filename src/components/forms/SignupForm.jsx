@@ -7,7 +7,7 @@ import { CustomForm } from "./common/CustomForm.styled";
 import { CustomInput } from "components/common/CustomInput/CustomInput";
 import { CustomCheckbox } from "components/common/CustomCheckbox/CustomCheckbox";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
-import { Modal } from "components/common/Modal/Modal";
+import { Modal } from "components/Modal/Modal";
 import { TermsAgreement } from "components/auth/TermsAgreement";
 
 const initialValues = {
