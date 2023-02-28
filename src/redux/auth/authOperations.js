@@ -2,18 +2,22 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { signupUserAsync, loginUserAsync, logoutUserAsync,
   forgotPasswordAsync, getUserAsync, changePasswordAsync
 } from "api/auth";
+import { Notify } from 'notiflix';
+
+Notify.init({
+  position: 'center-top',
+  distance: '40px',
+});
 
 export const signupUser = createAsyncThunk(
   'auth/signup',
-  async (values) => {
+  async (userData) => {
     try {
-      const data = await signupUserAsync();
-      // Notify.success('Registration successful!');
+      const data = await signupUserAsync(userData);
+      Notify.success('Registration successful!');
       return data;
-      //console.log(data);
     } catch (error) {
-      console.log(error);
-      // Notify.failure(error.message);
+      Notify.failure(`${error.response.data.message}`);
     }
   }
 );
@@ -21,11 +25,13 @@ export const signupUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (values) => {
+    //const { email, name, password } = values;
     try {
-      const data = await loginUserAsync();
+      const data = await loginUserAsync(values);
       // Notify.success('Registration successful!');
+      console.log('auth/login--->', data);
+
       return data;
-      //console.log(data);
     } catch (error) {
       console.log(error);
       // Notify.failure(error.message);

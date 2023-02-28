@@ -4,13 +4,9 @@ import { token } from "./token";
 
 axios.defaults.baseURL = BASE_URL;
 
-export const signupUserAsync = async () => {
-  const { data } = await axios.post('/auth/signup', {
-    name: "BoikoJuliya",
-    email: "BoikoJuliya2707@gmail.com",
-    password: "BoikoJuliya"
-  });
-  console.log('signupUserAsync --->', data);
+export const signupUserAsync = async (userData) => {
+  const { name, email, password } = userData;
+  const { data } = await axios.post('/auth/signup', { name, email, password });
   token.set(data.token);
   return data;
 };

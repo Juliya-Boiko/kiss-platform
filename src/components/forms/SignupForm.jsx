@@ -1,14 +1,14 @@
-// import { useDispatch } from "react-redux";
-// import { signupUser } from "redux/auth/authOperations";
-import { CustomInput } from "components/common/CustomInput/CustomInput";
-import { Formik } from "formik";
-import { sighupSchema } from "schemas/signupSchema";
-import { ButtonPrimary } from "components/buttons/ButtonPrimary";
-import { CustomCheckbox } from "components/common/CustomCheckbox/CustomCheckbox";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signupUser } from "redux/auth/authOperations";
+import { sighupSchema } from "schemas/signupSchema";
+import { Formik } from "formik";
+import { CustomForm } from "./common/CustomForm.styled";
+import { CustomInput } from "components/common/CustomInput/CustomInput";
+import { CustomCheckbox } from "components/common/CustomCheckbox/CustomCheckbox";
+import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { Modal } from "components/common/Modal/Modal";
 import { TermsAgreement } from "components/auth/TermsAgreement";
-import { CustomForm } from "./common/CustomForm.styled";
 
 const initialValues = {
   email: '',
@@ -19,19 +19,20 @@ const initialValues = {
 };
 
 export const SignupForm = () => {
-  const [showModel, setShowModal] = useState(false);
- // const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
 
-  const signupHandler = (values) => {
-    console.log(values);
-   // dispatch(signupUser());
+  const submitHandler = (values) => {
+    const { email, name, password } = values;
+    const userData = { email, name, password };
+    dispatch(signupUser(userData));
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={signupHandler}
       validationSchema={sighupSchema}
+      onSubmit={submitHandler}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
         <CustomForm>
@@ -42,7 +43,7 @@ export const SignupForm = () => {
           <CustomCheckbox value={values.acceptedTerms} name="acceptedTerms" onChange={handleChange} setShowModal={() => setShowModal(true)} />
           <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Create an account" width="100%" />
         
-          {showModel &&
+          {showModal &&
             <Modal onClick={() => setShowModal(false)}>
               <TermsAgreement
                 onAgree={() => {
