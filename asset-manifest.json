@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/kiss-platform/static/css/main.c3d5249d.css",
-    "main.js": "/kiss-platform/static/js/main.f1e956fe.js",
+    "main.js": "/kiss-platform/static/js/main.e46464be.js",
     "static/js/166.d1af2039.chunk.js": "/kiss-platform/static/js/166.d1af2039.chunk.js",
     "static/js/777.5b0542d9.chunk.js": "/kiss-platform/static/js/777.5b0542d9.chunk.js",
     "static/js/467.ad9ce431.chunk.js": "/kiss-platform/static/js/467.ad9ce431.chunk.js",
     "static/js/659.e8c35428.chunk.js": "/kiss-platform/static/js/659.e8c35428.chunk.js",
-    "static/js/35.342b5295.chunk.js": "/kiss-platform/static/js/35.342b5295.chunk.js",
+    "static/js/35.b2bf1ff2.chunk.js": "/kiss-platform/static/js/35.b2bf1ff2.chunk.js",
     "static/js/800.ca418d98.chunk.js": "/kiss-platform/static/js/800.ca418d98.chunk.js",
     "static/js/983.e0210d0e.chunk.js": "/kiss-platform/static/js/983.e0210d0e.chunk.js",
     "static/js/774.ebdb0971.chunk.js": "/kiss-platform/static/js/774.ebdb0971.chunk.js",
@@ -20,12 +20,12 @@
     "static/media/auth-retangle.png": "/kiss-platform/static/media/auth-retangle.b9318eedbeba7c99baa9.png",
     "index.html": "/kiss-platform/index.html",
     "main.c3d5249d.css.map": "/kiss-platform/static/css/main.c3d5249d.css.map",
-    "main.f1e956fe.js.map": "/kiss-platform/static/js/main.f1e956fe.js.map",
+    "main.e46464be.js.map": "/kiss-platform/static/js/main.e46464be.js.map",
     "166.d1af2039.chunk.js.map": "/kiss-platform/static/js/166.d1af2039.chunk.js.map",
     "777.5b0542d9.chunk.js.map": "/kiss-platform/static/js/777.5b0542d9.chunk.js.map",
     "467.ad9ce431.chunk.js.map": "/kiss-platform/static/js/467.ad9ce431.chunk.js.map",
     "659.e8c35428.chunk.js.map": "/kiss-platform/static/js/659.e8c35428.chunk.js.map",
-    "35.342b5295.chunk.js.map": "/kiss-platform/static/js/35.342b5295.chunk.js.map",
+    "35.b2bf1ff2.chunk.js.map": "/kiss-platform/static/js/35.b2bf1ff2.chunk.js.map",
     "800.ca418d98.chunk.js.map": "/kiss-platform/static/js/800.ca418d98.chunk.js.map",
     "983.e0210d0e.chunk.js.map": "/kiss-platform/static/js/983.e0210d0e.chunk.js.map",
     "774.ebdb0971.chunk.js.map": "/kiss-platform/static/js/774.ebdb0971.chunk.js.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.f1e956fe.js"
+    "static/js/main.e46464be.js"
   ]
 }
