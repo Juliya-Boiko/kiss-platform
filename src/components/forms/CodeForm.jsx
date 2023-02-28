@@ -1,11 +1,8 @@
-import { useNavigate } from "react-router-dom";
-// import { getUserAsync } from "api/auth";
-// import { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { getUserId } from "redux/auth/authOperations";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
+import { Notify } from 'notiflix';
 
 const initialState = [
   { id: 0, value: '' },
@@ -41,23 +38,22 @@ const Input = styled.input`
   }
 `;
 
-export const CodeForm = () => {
+export const CodeForm = ({ verificationToken }) => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
   const [code, setCode] = useState(initialState);
   const [focused] = useState(0);
   const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    const every = code.every(item => item.value.length === 1);
+    every ? setValid(true) : setValid(false);
+  }, [code]);
 
   if (code[5].value.length === 1) {
     const currentInput = document.querySelector(`input[name=input-5]`);
     currentInput.blur();
   }
 
-  useEffect(() => {
-    const every = code.every(item => item.value.length === 1);
-    every ? setValid(true) : setValid(false);
-  }, [code]);
-  
   const inputHandler = (e, id) => {
     const number = e.target.value;
     if (isNaN(+number)) {
@@ -84,14 +80,11 @@ export const CodeForm = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const value = code.map(item => item.value).join('');
-    console.log(value);
-    // if (code === inputValue) {
-    //   dispatch(getUserId());
-    navigate('/change-password')
-    // } else {
-    //   console.log('NOT right code');
-    //   console.log('right code--->', code);
-    // }
+    if (value === verificationToken) {
+      navigate('/change-password');
+    } else {
+      Notify.failure("Code dont match");
+    }
   }
 
   return (

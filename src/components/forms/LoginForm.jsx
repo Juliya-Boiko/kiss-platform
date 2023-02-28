@@ -14,14 +14,14 @@ const initialValues = {
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const loginHandler = (values) => {
+  const submitHandler = (values) => {
     dispatch(loginUser(values));
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={loginHandler}
+      onSubmit={submitHandler}
       validationSchema={loginSchema}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (

@@ -29,7 +29,7 @@ export const App = () => {
         <Route path="forgot-password" element={
           <PublicRoute restricted><ForgotPasswordPage /></PublicRoute>}
         />
-        <Route path="insert-code" element={
+        <Route path="insert-code/:email" element={
           <PublicRoute restricted><InsertCodePage /></PublicRoute>}
         />
         <Route path="change-password" element={

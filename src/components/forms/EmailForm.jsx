@@ -1,29 +1,30 @@
 import { useNavigate } from "react-router-dom";
-import { Formik } from "formik";
+import { useDispatch } from "react-redux";
 import { emailSchema } from "schemas/emailSchema";
+import { forgotPassword } from "redux/auth/authOperations";
+import { Formik } from "formik";
+import { CustomForm } from "./common/CustomForm.styled";
 import { CustomInput } from "components/common/CustomInput/CustomInput";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
-//import { forgotPasswordAsync } from "api/auth";
-import { CustomForm } from "./common/CustomForm.styled";
 
 const initialValues = {
   email: '',
 };
 
 export const EmailForm = () => {
-   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const sendEmailHandler = async (values) => {
-    console.log('Sending email values--->', values);
-    // await forgotPasswordAsync();
-    navigate('/insert-code');
+  const submitHandler = async (values) => {
+    dispatch(forgotPassword(values));
+    navigate(`/insert-code/${values.email}`);
   }
   
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={emailSchema}
-      onSubmit={sendEmailHandler}
+      onSubmit={submitHandler}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
         <CustomForm>

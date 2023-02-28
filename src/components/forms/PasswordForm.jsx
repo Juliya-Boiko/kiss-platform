@@ -1,6 +1,8 @@
+import { useDispatch, useSelector } from "react-redux";
+import { passwordSchema } from "schemas/passwordSchema";
+import { changePassword } from "redux/auth/authOperations";
 import { Formik } from "formik";
 import { CustomForm } from "./common/CustomForm.styled";
-import { passwordSchema } from "schemas/passwordSchema";
 import { CustomInput } from "components/common/CustomInput/CustomInput";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 
@@ -10,14 +12,14 @@ const initialValues = {
 }; 
 
 export const PasswordForm = () => {
+  const dispatch = useDispatch();
+  const userId = useSelector(state => state.auth.userId);
 
   const submitHandler = (values) => {
-    console.log(values);
-   // dispatch(signupUser());
+    const { password } = values;
+    const data = { id: userId, password }
+    dispatch(changePassword(data));
   };
-
-
-
 
   return (
     <Formik

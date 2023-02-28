@@ -1,27 +1,28 @@
-// import { useNavigate } from "react-router-dom";
-// import { getUserAsync } from "api/auth";
-// import { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { getUserId } from "redux/auth/authOperations";
+import { getUserAsync } from "api/auth";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getUserId } from "redux/auth/authOperations";
 import { VerifyWrapper } from "components/auth/VerifyWrapper";
 import { CodeForm } from "components/forms/CodeForm";
 
 const InsertCodePage = () => {
-  //const [verCode, setVerCode] = useState(initialState);
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const { email } = useParams();
+  const [verificationToken, seVerificationToken] = useState(null);
+  const dispatch = useDispatch();
   
-  // const getUser = async () => {
-  //  await getUserAsync().then(response => setCode(response.verificationToken));
-  // } 
+  const getToken = async (email) => {
+    await getUserAsync(email).then(response => seVerificationToken(response.verificationToken));
+  } 
   
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
+  useEffect(() => {
+    dispatch(getUserId(email));
+    getToken(email);
+  }, [dispatch, email]);
 
   return (
     <VerifyWrapper backTo="/forgot-password">
-      <CodeForm />
+      <CodeForm verificationToken={verificationToken} />
     </VerifyWrapper>
   );
 };

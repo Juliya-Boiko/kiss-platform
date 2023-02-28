@@ -40,10 +40,8 @@ export const logoutUser = createAsyncThunk(
   async (values) => {
     try {
       await logoutUserAsync();
-      //console.log(data);
     } catch (error) {
-      console.log(error);
-      // Notify.failure(error.message);
+      Notify.failure(`${error.response.data.message}`);
     }
   }
 );
@@ -52,19 +50,18 @@ export const forgotPassword = createAsyncThunk(
   'auth/forgotPassword',
   async (values) => {
     try {
-      await forgotPasswordAsync();
+      await forgotPasswordAsync(values);
     } catch (error) {
-      console.log('forgotPasswordERROR ->', error);
-      // Notify.failure(error.message);
+      Notify.failure(`${error.response.data.message}`);
     }
   }
 );
 
 export const getUserId = createAsyncThunk(
   'auth/getUser',
-  async (values) => {
+  async (value) => {
     try {
-      const data = await getUserAsync();
+      const data = await getUserAsync(value);
       return data;
     } catch (error) {
       console.log('getUserId ->', error);
@@ -77,13 +74,10 @@ export const changePassword = createAsyncThunk(
   'auth/changePassword',
   async (values) => {
     try {
-      const data = await changePasswordAsync();
-      // Notify.success('Registration successful!');
-      console.log('auth/changePassword --->',data);
+      const data = await changePasswordAsync(values);
       return data;
     } catch (error) {
-      console.log(error);
-      // Notify.failure(error.message);
+      Notify.failure(`${error.response.data.message}`);
     }
   }
 );

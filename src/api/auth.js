@@ -24,26 +24,24 @@ export const logoutUserAsync = async () => {
   return true;
 };
 
-export const forgotPasswordAsync = async () => {
-  await axios.post('/auth/verify', {
-    email: "BoikoJuliya2707@gmail.com",
-  });
+export const forgotPasswordAsync = async (values) => {
+  const { email } = values;
+  await axios.post('/auth/verify', { email });
 }; 
 
-export const getUserAsync = async () => {
+export const getUserAsync = async (value) => {
   try {
-    const { data } = await axios.get('/auth/BoikoJuliya2707@gmail.com');
+    const { data } = await axios.get(`/auth/${value}`);
     return data;
   } catch (error) {
     console.log('error--->', error);
   }
 };
 
-export const changePasswordAsync = async () => {
-  const { data } = await axios.put('/auth/update/63f8a5c2d2205137b459e8c2', {
-    password: "BoikoJuliya"
+export const changePasswordAsync = async (values) => {
+  const { data } = await axios.put(`/auth/update/${values.id}`, {
+    password: values.password
   });
- // console.log('changePasswordAsync --->', data);
   token.set(data.token);
   return data;
 };
