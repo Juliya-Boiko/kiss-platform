@@ -1,10 +1,10 @@
-// import { useDispatch } from "react-redux";
-// import { loginUser } from "redux/auth/authOperations";
+import { useDispatch } from "react-redux";
+import { loginSchema } from "schemas/loginSchema";
+import { loginUser } from "redux/auth/authOperations";
 import { Formik } from "formik";
+import { CustomForm } from "./common/CustomForm.styled";
 import { CustomInput } from "components/common/CustomInput/CustomInput";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
-import { loginSchema } from "schemas/loginSchema";
-import { CustomForm } from "./common/CustomForm.styled";
 
 const initialValues = {
   email: '',
@@ -12,12 +12,10 @@ const initialValues = {
 };
 
 export const LoginForm = () => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const loginHandler = (values) => {
-   // e.preventDefault();
-    console.log('login values--->', values);
-    //dispatch(loginUser());
+    dispatch(loginUser(values));
   };
 
   return (

@@ -25,16 +25,12 @@ export const signupUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (values) => {
-    //const { email, name, password } = values;
     try {
       const data = await loginUserAsync(values);
-      // Notify.success('Registration successful!');
-      console.log('auth/login--->', data);
-
+      Notify.success('Login successful!');
       return data;
     } catch (error) {
-      console.log(error);
-      // Notify.failure(error.message);
+      Notify.failure(`${error.response.data.message}`);
     }
   }
 );

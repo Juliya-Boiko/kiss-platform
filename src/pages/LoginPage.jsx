@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { LoginForm } from 'components/forms/LoginForm';
 import { AuthWrapper } from 'components/auth/AuthWrapper';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 
 const Link = styled(NavLink)`
   margin: ${p => p.theme.spaces.xs} 0 0 auto;

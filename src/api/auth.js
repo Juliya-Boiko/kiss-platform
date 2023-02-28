@@ -4,19 +4,16 @@ import { token } from "./token";
 
 axios.defaults.baseURL = BASE_URL;
 
-export const signupUserAsync = async (userData) => {
-  const { name, email, password } = userData;
+export const signupUserAsync = async (values) => {
+  const { name, email, password } = values;
   const { data } = await axios.post('/auth/signup', { name, email, password });
   token.set(data.token);
   return data;
 };
 
-export const loginUserAsync = async () => {
-  const { data } = await axios.post('/auth/login', {
-    email: "BoikoJuliya2707@gmail.com",
-    password: "BoikoJuliya"
-  });
-  //console.log('loginUserAsync --->', data);
+export const loginUserAsync = async (values) => {
+  const { email, password } = values;
+  const { data } = await axios.post('/auth/login', { email, password });
   token.set(data.token);
   return data;
 };
