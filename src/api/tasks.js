@@ -12,7 +12,6 @@ export const getAllTasksAsync = async (value) => {
 };
 
 export const addTaskAsync = async (values) => {
-  console.log('values--->', values);
   const { title, descr, status } = values;
   try {
     token.set(values.token);

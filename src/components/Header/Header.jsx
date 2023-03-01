@@ -6,7 +6,9 @@ import { theme } from "style/theme";
 import { useState } from "react";
 import { Menu } from "components/Menu/Menu";
 import { User } from "./User";
+import { Scrumbs } from "components/Scrumbs/Scrumbs";
 // import { Scrumbs } from "../Scrumbs/Scrumbs";
+import { DesktopContainer } from "components/common/MediaContainers.styled";
 import { MobileContainer } from "components/common/MediaContainers.styled";
 
 const Container = styled.header`
@@ -22,9 +24,9 @@ export const Header = () => {
 
   return (
     <Container>
-      {/* <DesktopContainer>
+      <DesktopContainer>
         <Scrumbs />
-      </DesktopContainer> */}
+      </DesktopContainer>
 
       <MobileContainer>
         <ButtonIcon color={theme.colors.brand.green} onClick={() => setShowMenu(true)}><FiMenu size={30}/></ButtonIcon>

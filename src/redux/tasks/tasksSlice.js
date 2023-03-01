@@ -12,7 +12,6 @@ export const tasksSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllTasks.fulfilled, (state, { payload }) => {
-        console.log('add payload-->', payload);
         state.items = [...payload];
       })
       .addCase(addTask.fulfilled, () => {})

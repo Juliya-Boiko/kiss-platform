@@ -13,6 +13,9 @@ import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 const CustomForm = styled(Form)`
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+    width: 900px;
+  }
 `;
 
 const Actions = styled.div`

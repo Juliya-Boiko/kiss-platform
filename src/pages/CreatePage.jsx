@@ -1,10 +1,13 @@
 import { CreateForm } from "components/forms/task/CreateForm";
 import { Scrumbs } from "components/Scrumbs/Scrumbs";
+import { MobileContainer } from "components/common/MediaContainers.styled";
 
 const CreatePage = () => {
   return (
     <>
-      <Scrumbs />
+      <MobileContainer>
+        <Scrumbs />
+      </MobileContainer>
       <CreateForm />
     </>
   );

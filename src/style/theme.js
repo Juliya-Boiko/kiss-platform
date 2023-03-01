@@ -19,7 +19,9 @@ export const theme = {
       gray10: '#CED2DB',
       // gray5: '#FAFAFC'
     },
-    complementary: {},
+    complementary: {
+      green: '#559B95'
+    },
     support: {
       error: '#F03D3D'
     },
