@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { emailSchema } from "schemas/emailSchema";
 import { forgotPassword } from "redux/auth/authOperations";
 import { Formik } from "formik";
-import { CustomForm } from "./common/CustomForm.styled";
-import { CustomInput } from "components/common/CustomInput/CustomInput";
+import { AuthForm } from "./common/AuthForm.styled";
+import { AuthInput } from "components/forms/auth/common/AuthInput";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 
 const initialValues = {
@@ -27,10 +27,10 @@ export const EmailForm = () => {
       onSubmit={submitHandler}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
-        <CustomForm>
-          <CustomInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
+        <AuthForm>
+          <AuthInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
           <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Send Code" width="100%" />
-        </CustomForm>
+        </AuthForm>
       )}
     </Formik>
   );

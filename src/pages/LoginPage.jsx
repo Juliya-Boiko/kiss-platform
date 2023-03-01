@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { LoginForm } from 'components/forms/LoginForm';
+import { LoginForm } from 'components/forms/auth/LoginForm';
 import { AuthWrapper } from 'components/auth/AuthWrapper';
 import { NavLink } from 'react-router-dom';
 

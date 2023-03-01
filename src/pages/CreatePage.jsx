@@ -1,6 +1,12 @@
+import { CreateForm } from "components/forms/task/CreateForm";
+import { Scrumbs } from "components/Scrumbs/Scrumbs";
+
 const CreatePage = () => {
   return (
-    <div>CreatePage</div>
+    <>
+      <Scrumbs />
+      <CreateForm />
+    </>
   );
 };
 

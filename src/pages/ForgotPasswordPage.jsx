@@ -1,5 +1,5 @@
 import { VerifyWrapper } from "components/auth/VerifyWrapper";
-import { EmailForm } from "components/forms/EmailForm";
+import { EmailForm } from "components/forms/auth/EmailForm";
 
 const ForgotPasswordPage = () => {
   return (

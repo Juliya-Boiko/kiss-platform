@@ -1,30 +1,39 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
-import { useDispatch } from "react-redux";
-import { logoutUser } from 'redux/auth/authOperations';
-import { Loader } from 'components/Loader/Loader';
+// import { Loader } from 'components/Loader/Loader';
 import { Header } from 'components/Header/Header';
 import { MainContainer } from 'components/common/MainContainer.styled';
+import styled from 'styled-components';
+// import { Scrumbs } from 'components/Scrumbs/Scrumbs';
+// import { MobileContainer } from 'components/common/MediaContainers.styled';
+
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: ${p => p.theme.spaces.xxs} 0 ${p => p.theme.spaces.s} 0;
+  //background-color: lightgoldenrodyellow;
+`;
 
 const HomePage = () => {
-  const dispatch = useDispatch();
 
-  const logoutHandler = () => {
-    console.log('logout click');
-    dispatch(logoutUser());
-  }; 
+
 
   return (
     <MainContainer>
       <Header />
-      <Loader size="40" />
-      <button type='button' onClick={logoutHandler}>Logout</button>
-      <nav>
+      {/* <Loader size="40" /> */}
+      {/* <nav>
         <NavLink to="statistic">STATISTIC</NavLink>
         <NavLink to="create">Create task</NavLink>
         <NavLink to="profile">PROFILE</NavLink>
-      </nav>
-      <Outlet />
+      </nav> */}
+      <Page>
+        {/* <MobileContainer>
+          <Scrumbs />
+        </MobileContainer> */}
+        
+        <Outlet />
+      </Page>
     </MainContainer>
     
   );

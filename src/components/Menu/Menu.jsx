@@ -1,12 +1,11 @@
-import { Backdrop } from "components/common/Backdrop.styled";
-import { Logo } from "components/Logo/Logo";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { Backdrop } from "components/common/Backdrop.styled";
+import { Logo } from "components/Logo/Logo";
 import { ButtonNav } from "components/buttons/ButtonNav";
-import { useDispatch } from "react-redux";
-import { logoutUser } from 'redux/auth/authOperations';
 import { RiDashboardLine } from "react-icons/ri";
 import { BiUserCircle, BiAddToQueue } from "react-icons/bi";
+import { ButtonLogout } from "components/buttons/ButtonLogout";
 
 const Container = styled.div`
   height: 100%;
@@ -18,23 +17,17 @@ const Container = styled.div`
 
 const Item = styled.li`
   &:not(:last-child) {
-    margin-bottom: 40px;
+    margin-bottom: ${p => p.theme.spaces.s};
   }
 `;
 
 export const Menu = ({ onClick }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const navHandler = (link) => {
     onClick();
     navigate(link);
   };
-
-  const logoutHandler = () => {
-    console.log('logout click');
-    dispatch(logoutUser());
-  }; 
 
   return (
     <Backdrop>
@@ -53,7 +46,7 @@ export const Menu = ({ onClick }) => {
           </Item>
         </ul>
 
-        <button type='button' onClick={logoutHandler}>Logout</button>
+        <ButtonLogout type={'colored'}/>
       </Container>
     </Backdrop>
   );

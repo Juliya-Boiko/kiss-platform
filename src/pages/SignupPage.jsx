@@ -1,4 +1,4 @@
-import { SignupForm } from "components/forms/SignupForm";
+import { SignupForm } from "components/forms/auth/SignupForm";
 import { AuthWrapper } from "components/auth/AuthWrapper";
 
 const SignupPage = () => {

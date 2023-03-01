@@ -1,5 +1,5 @@
 import { VerifyWrapper } from "components/auth/VerifyWrapper";
-import { PasswordForm } from "components/forms/PasswordForm";
+import { PasswordForm } from "components/forms/auth/PasswordForm";
 
 const ChangePasswordPage = () => {
   return (

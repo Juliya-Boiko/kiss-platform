@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getUserId } from "redux/auth/authOperations";
 import { VerifyWrapper } from "components/auth/VerifyWrapper";
-import { CodeForm } from "components/forms/CodeForm";
+import { CodeForm } from "components/forms/auth/CodeForm";
 
 const InsertCodePage = () => {
   const { email } = useParams();

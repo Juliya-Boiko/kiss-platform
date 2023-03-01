@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
 import { ButtonIcon } from "components/buttons/ButonIcon";
 import { theme } from "style/theme";
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Menu } from "components/Menu/Menu";
+import { User } from "./User";
+// import { Scrumbs } from "../Scrumbs/Scrumbs";
+import { MobileContainer } from "components/common/MediaContainers.styled";
 
 const Container = styled.header`
   display: flex;
@@ -15,21 +17,24 @@ const Container = styled.header`
   //background-color: lightyellow;
 `;
 
-const Avatar = styled.img`
-  display: block;
-  width: 44px;
-  border-radius: 50%;
-`;
-
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const src = useSelector(state => state.auth.avatar);
 
   return (
     <Container>
-      <ButtonIcon color={theme.colors.brand.green} onClick={() => setShowMenu(true)}><FiMenu size={30}/></ButtonIcon>
-      <Logo width="126" heigth="50" margin="0" />
-      <Avatar src={src} alt="Avatar" />
+      {/* <DesktopContainer>
+        <Scrumbs />
+      </DesktopContainer> */}
+
+      <MobileContainer>
+        <ButtonIcon color={theme.colors.brand.green} onClick={() => setShowMenu(true)}><FiMenu size={30}/></ButtonIcon>
+      </MobileContainer>
+
+      <MobileContainer>
+        <Logo width="126" heigth="50" margin="0" />
+      </MobileContainer>
+
+      <User />
 
       {showMenu && <Menu onClick={() => setShowMenu(false)} />}
     </Container>
