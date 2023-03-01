@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { taskSchema } from "schemas/taskSchema";
+import { addTask } from "redux/tasks/tasksOperations";
 import { Formik, Form } from "formik";
 import { TaskInput } from "./common/TaskInput";
 import { TaskSelect } from "./common/TaskSelect";
@@ -27,13 +29,16 @@ const initialValues = {
 
 export const CreateForm = () => {
   const navigate = useNavigate();
+  const token = useSelector(state => state.auth.token);
+  const dispatch = useDispatch();
 
-  const submitHandler = (values) => {
-    console.log(values);
+  const submitHandler = async (values) => {
+    const data = {
+      token,
+      ...values
+    }
+    dispatch(addTask(data));
     navigate("/homepage/statistic");
-    // const { email, name, password } = values;
-    // const userData = { email, name, password };
-    //dispatch(signupUser(userData));
   };
 
   return (
