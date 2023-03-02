@@ -12,7 +12,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding: ${p => p.theme.spaces.s} 0;
-    border: 1px solid ${p => p.theme.colors.grayScale.gray40};
+    border-right: 1px solid ${p => p.theme.colors.grayScale.gray40};
   }
 `;
 

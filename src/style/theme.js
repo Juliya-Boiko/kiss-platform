@@ -64,7 +64,7 @@ export const theme = {
   },
   boxShadow: {
     s: '0px 2.7395px 5.47899px rgba(11, 31, 77, 0.1)',
-    m: '',
+    m: '0px 4px 8px rgba(11, 31, 77, 0.1)',
     l: '',
     xl: ''
   }
