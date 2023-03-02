@@ -35,7 +35,6 @@ const Label = styled.li`
 
 export const Chart = ({ items }) => {
   const data = chartFormatter(items);
-  console.log(data);
 
   return (
     <Container>
