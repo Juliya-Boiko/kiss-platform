@@ -17,13 +17,16 @@ export const theme = {
       gray30: '#B6BCC9',
       gray20: '#CED2DB',
       gray10: '#CED2DB',
-      // gray5: '#FAFAFC'
+      gray5: '#FAFAFC'
     },
     complementary: {
       green: '#559B95'
     },
     support: {
-      error: '#F03D3D'
+      error: '#F03D3D',
+      message: '#4070F4',
+      success: '#0BB07B',
+      warning: '#FFAD0D'
     },
   },
   spaces: {
@@ -56,5 +59,12 @@ export const theme = {
   },
   borderRadius: {
     s: '5px',
+    l: '25px'
+  },
+  boxShadow: {
+    s: '0px 2.7395px 5.47899px rgba(11, 31, 77, 0.1)',
+    m: '',
+    l: '',
+    xl: ''
   }
 };

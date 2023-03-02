@@ -11,7 +11,7 @@ const Text = styled.p`
 
 export const Scrumbs = () => {
   const { pathname } = useLocation();
-  const path = pathname.split('/')[2] || '';
+  const path = pathname.split('/')[2] || 'homepage';
 
   return (
     <Text>{nameCapitalize(path)}</Text>

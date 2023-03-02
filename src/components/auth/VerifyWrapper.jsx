@@ -1,8 +1,8 @@
-import { Logo } from "components/Logo/Logo";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 import { Section } from "./common/Section.styled";
+import { Logo } from "components/Logo/Logo";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const Container = styled.div`
   position: relative;
