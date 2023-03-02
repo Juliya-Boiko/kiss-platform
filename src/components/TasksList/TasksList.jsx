@@ -1,35 +1,68 @@
+import Table from "rc-table";
 import styled from "styled-components";
 import { dateFormatter } from "helpers/dateFormatter";
-const List = styled.ul`
-`;
+import { Badge } from "components/Badge/Badge";
 
-const Item = styled.li`
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-auto-rows: minmax(auto);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  p {
-    font-weight: 400;
-font-size: 12px;
-    background-color: teal;
+const CustomTable = styled(Table)`
+  table {
+    width: 100%;
+  }
+  thead {
+    tr {
+      position: relative;
+      font-weight: ${p => p.theme.fontWeight.regular};
+      font-size: ${p => p.theme.fontSize.xs};
+      line-height: 1.5;
+      color: ${p => p.theme.colors.complementary.grey};
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        height: 1.2px;
+        width: 100%;
+        background-color: ${p => p.theme.colors.grayScale.gray20};
+      }
+    }
+    th {
+      padding: 0 0 ${p => p.theme.spaces.xxs} 0;
+    }
+  }
+  tbody {
+    td {
+      padding: 10px 5px;
+      font-weight: ${p => p.theme.fontWeight.regular};
+      font-size: 12px;
+      color: ${p => p.theme.colors.grayScale.gray50};
+      @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+        font-size: ${p => p.theme.fontSize.s};
+      }
+    }
   }
 `;
 
 export const TasksList = ({ items }) => {
-  //const data = [{_id: 'header', status: 'Status', title: 'Title', updatedAt: 'Publish Date'}, ...items];
-  console.log(items);
-  // console.log(dateFormatter('2023-03-01T14:49:00.014Z'));
+  const columns = [
+    { title: "Status", dataIndex: "status", key: "status", width: 110, render: (value) => <Badge status={value} /> },
+    { title: "Title", dataIndex: "title", key: "title", width: '50%', render: (value) => <p style={{ textDecoration: 'underline', maxWidth: '460px' }}>{value}</p> },
+    { title: "Date", dataIndex: "date", key: "date", width: 110, render: (value) => <p style={{ textAlign: 'center' }}>{value}</p>  },
+  ];
+
+  const formatted = items.map((item, index) => {
+    return {
+      status: item.status,
+      title: item.title,
+      date: dateFormatter(item.updatedAt),
+      key: (index + 1).toString()
+    }
+  });
 
   return (
-    <List>
-      {items && items.map(item => {
-        return <Item key={item._id}>
-          <p>{item.status}</p>
-          <p>{item.title}</p>
-          <p>{dateFormatter(item.updatedAt)}</p>
-        </Item>
-      })}
-    </List>
+    <CustomTable
+      columns={columns}
+      data={formatted}
+      tableLayout="auto"
+    />
   );
 };

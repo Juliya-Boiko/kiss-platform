@@ -20,7 +20,8 @@ export const theme = {
       gray5: '#FAFAFC'
     },
     complementary: {
-      green: '#559B95'
+      green: '#559B95',
+      grey: '#3C4C70'
     },
     support: {
       error: '#F03D3D',
