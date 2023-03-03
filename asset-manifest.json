@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kiss-platform/static/css/main.c3d5249d.css",
-    "main.js": "/kiss-platform/static/js/main.90e8b1a1.js",
+    "main.js": "/kiss-platform/static/js/main.dcd394b9.js",
     "static/js/997.db3afa42.chunk.js": "/kiss-platform/static/js/997.db3afa42.chunk.js",
     "static/js/922.568a7f8d.chunk.js": "/kiss-platform/static/js/922.568a7f8d.chunk.js",
     "static/js/509.059fc188.chunk.js": "/kiss-platform/static/js/509.059fc188.chunk.js",
@@ -12,13 +12,14 @@
     "static/js/780.f7a9062d.chunk.js": "/kiss-platform/static/js/780.f7a9062d.chunk.js",
     "static/js/223.5de5f341.chunk.js": "/kiss-platform/static/js/223.5de5f341.chunk.js",
     "static/js/318.557bc42e.chunk.js": "/kiss-platform/static/js/318.557bc42e.chunk.js",
-    "static/js/0.f44dc417.chunk.js": "/kiss-platform/static/js/0.f44dc417.chunk.js",
+    "static/js/93.8c857f1e.chunk.js": "/kiss-platform/static/js/93.8c857f1e.chunk.js",
     "static/js/705.34c10a8a.chunk.js": "/kiss-platform/static/js/705.34c10a8a.chunk.js",
     "static/js/727.ce929d24.chunk.js": "/kiss-platform/static/js/727.ce929d24.chunk.js",
     "static/js/820.b67e3a44.chunk.js": "/kiss-platform/static/js/820.b67e3a44.chunk.js",
     "static/js/71.bb83611b.chunk.js": "/kiss-platform/static/js/71.bb83611b.chunk.js",
     "static/js/692.74ebab6d.chunk.js": "/kiss-platform/static/js/692.74ebab6d.chunk.js",
     "static/js/610.573ad478.chunk.js": "/kiss-platform/static/js/610.573ad478.chunk.js",
+    "static/js/578.2bffe466.chunk.js": "/kiss-platform/static/js/578.2bffe466.chunk.js",
     "static/js/9.797ad63b.chunk.js": "/kiss-platform/static/js/9.797ad63b.chunk.js",
     "static/js/860.7edd5911.chunk.js": "/kiss-platform/static/js/860.7edd5911.chunk.js",
     "static/js/614.6a89e438.chunk.js": "/kiss-platform/static/js/614.6a89e438.chunk.js",
@@ -26,7 +27,7 @@
     "static/media/auth-retangle.png": "/kiss-platform/static/media/auth-retangle.b9318eedbeba7c99baa9.png",
     "index.html": "/kiss-platform/index.html",
     "main.c3d5249d.css.map": "/kiss-platform/static/css/main.c3d5249d.css.map",
-    "main.90e8b1a1.js.map": "/kiss-platform/static/js/main.90e8b1a1.js.map",
+    "main.dcd394b9.js.map": "/kiss-platform/static/js/main.dcd394b9.js.map",
     "997.db3afa42.chunk.js.map": "/kiss-platform/static/js/997.db3afa42.chunk.js.map",
     "922.568a7f8d.chunk.js.map": "/kiss-platform/static/js/922.568a7f8d.chunk.js.map",
     "509.059fc188.chunk.js.map": "/kiss-platform/static/js/509.059fc188.chunk.js.map",
@@ -37,19 +38,20 @@
     "780.f7a9062d.chunk.js.map": "/kiss-platform/static/js/780.f7a9062d.chunk.js.map",
     "223.5de5f341.chunk.js.map": "/kiss-platform/static/js/223.5de5f341.chunk.js.map",
     "318.557bc42e.chunk.js.map": "/kiss-platform/static/js/318.557bc42e.chunk.js.map",
-    "0.f44dc417.chunk.js.map": "/kiss-platform/static/js/0.f44dc417.chunk.js.map",
+    "93.8c857f1e.chunk.js.map": "/kiss-platform/static/js/93.8c857f1e.chunk.js.map",
     "705.34c10a8a.chunk.js.map": "/kiss-platform/static/js/705.34c10a8a.chunk.js.map",
     "727.ce929d24.chunk.js.map": "/kiss-platform/static/js/727.ce929d24.chunk.js.map",
     "820.b67e3a44.chunk.js.map": "/kiss-platform/static/js/820.b67e3a44.chunk.js.map",
     "71.bb83611b.chunk.js.map": "/kiss-platform/static/js/71.bb83611b.chunk.js.map",
     "692.74ebab6d.chunk.js.map": "/kiss-platform/static/js/692.74ebab6d.chunk.js.map",
     "610.573ad478.chunk.js.map": "/kiss-platform/static/js/610.573ad478.chunk.js.map",
+    "578.2bffe466.chunk.js.map": "/kiss-platform/static/js/578.2bffe466.chunk.js.map",
     "9.797ad63b.chunk.js.map": "/kiss-platform/static/js/9.797ad63b.chunk.js.map",
     "860.7edd5911.chunk.js.map": "/kiss-platform/static/js/860.7edd5911.chunk.js.map",
     "614.6a89e438.chunk.js.map": "/kiss-platform/static/js/614.6a89e438.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.90e8b1a1.js"
+    "static/js/main.dcd394b9.js"
   ]
 }
