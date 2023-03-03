@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from 'hocs/PublicRoute';
 import { PrivateRoute } from 'hocs/PrivateRoute';
 import { Navigate } from 'react-router-dom';
+import { NotFoundPage } from 'pages/NotFoundPage';
 
 const SignupPage = lazy(() => import('../pages/SignupPage'));
 const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage'));
@@ -42,6 +43,7 @@ export const App = () => {
           <Route path="create" element={<CreatePage />} />
           <Route path="statistic" element={<StatisticPage />} />
           <Route path="task/:id" element={<TaskPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Route>
     </Routes>

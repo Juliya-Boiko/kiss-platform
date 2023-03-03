@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { taskSchema } from "schemas/taskSchema";
+import { updateTaskAsync, deleteTaskAsync } from "api/tasks";
 import { Formik, Form } from "formik";
 import { TaskInput } from "./common/TaskInput";
 import { TaskSelect } from "./common/TaskSelect";
@@ -8,10 +10,7 @@ import { TaskArea } from "./common/TaskArea";
 import { ButtonSecondary } from "components/buttons/ButtonSecondary";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { ButtonDelete } from "components/buttons/ButtonDelete";
-import { updateTaskAsync } from "api/tasks";
-import { useState } from "react";
 import { Warning } from "components/Warning/Warning";
-import { deleteTaskAsync } from "api/tasks";
 import { Notify } from 'notiflix';
 
 const CustomForm = styled(Form)`
@@ -77,5 +76,5 @@ export const UpdateForm = ({ values, token }) => {
       </Formik>}
       { showWarn && <Warning onCancel={() => setShowWarn(false)} onConfirm={deleteHandler} /> }
     </>
-);
+  );
 };
