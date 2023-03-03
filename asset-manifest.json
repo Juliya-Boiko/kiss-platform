@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kiss-platform/static/css/main.c3d5249d.css",
-    "main.js": "/kiss-platform/static/js/main.b621c077.js",
+    "main.js": "/kiss-platform/static/js/main.ce702c79.js",
     "static/js/997.2b71b6bd.chunk.js": "/kiss-platform/static/js/997.2b71b6bd.chunk.js",
     "static/js/922.8a1d5389.chunk.js": "/kiss-platform/static/js/922.8a1d5389.chunk.js",
     "static/js/509.059fc188.chunk.js": "/kiss-platform/static/js/509.059fc188.chunk.js",
@@ -11,7 +11,7 @@
     "static/js/55.7f35f78a.chunk.js": "/kiss-platform/static/js/55.7f35f78a.chunk.js",
     "static/js/780.6dd2c060.chunk.js": "/kiss-platform/static/js/780.6dd2c060.chunk.js",
     "static/js/223.5de5f341.chunk.js": "/kiss-platform/static/js/223.5de5f341.chunk.js",
-    "static/js/318.913082de.chunk.js": "/kiss-platform/static/js/318.913082de.chunk.js",
+    "static/js/318.e6c191cc.chunk.js": "/kiss-platform/static/js/318.e6c191cc.chunk.js",
     "static/js/550.fd7111eb.chunk.js": "/kiss-platform/static/js/550.fd7111eb.chunk.js",
     "static/js/705.34c10a8a.chunk.js": "/kiss-platform/static/js/705.34c10a8a.chunk.js",
     "static/js/727.ce929d24.chunk.js": "/kiss-platform/static/js/727.ce929d24.chunk.js",
@@ -29,7 +29,7 @@
     "static/media/not-found.png": "/kiss-platform/static/media/not-found.16f2a2272b05b706efa6.png",
     "index.html": "/kiss-platform/index.html",
     "main.c3d5249d.css.map": "/kiss-platform/static/css/main.c3d5249d.css.map",
-    "main.b621c077.js.map": "/kiss-platform/static/js/main.b621c077.js.map",
+    "main.ce702c79.js.map": "/kiss-platform/static/js/main.ce702c79.js.map",
     "997.2b71b6bd.chunk.js.map": "/kiss-platform/static/js/997.2b71b6bd.chunk.js.map",
     "922.8a1d5389.chunk.js.map": "/kiss-platform/static/js/922.8a1d5389.chunk.js.map",
     "509.059fc188.chunk.js.map": "/kiss-platform/static/js/509.059fc188.chunk.js.map",
@@ -39,7 +39,7 @@
     "55.7f35f78a.chunk.js.map": "/kiss-platform/static/js/55.7f35f78a.chunk.js.map",
     "780.6dd2c060.chunk.js.map": "/kiss-platform/static/js/780.6dd2c060.chunk.js.map",
     "223.5de5f341.chunk.js.map": "/kiss-platform/static/js/223.5de5f341.chunk.js.map",
-    "318.913082de.chunk.js.map": "/kiss-platform/static/js/318.913082de.chunk.js.map",
+    "318.e6c191cc.chunk.js.map": "/kiss-platform/static/js/318.e6c191cc.chunk.js.map",
     "550.fd7111eb.chunk.js.map": "/kiss-platform/static/js/550.fd7111eb.chunk.js.map",
     "705.34c10a8a.chunk.js.map": "/kiss-platform/static/js/705.34c10a8a.chunk.js.map",
     "727.ce929d24.chunk.js.map": "/kiss-platform/static/js/727.ce929d24.chunk.js.map",
@@ -55,6 +55,6 @@
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.b621c077.js"
+    "static/js/main.ce702c79.js"
   ]
 }
