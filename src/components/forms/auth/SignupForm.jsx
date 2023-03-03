@@ -9,6 +9,7 @@ import { AuthCheckbox } from "components/forms/auth/common/AuthCheckbox";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { Modal } from "components/Modal/Modal";
 import { TermsAgreement } from "components/auth/TermsAgreement";
+import { AuthPassword } from "./common/AuthPassword";
 
 const initialValues = {
   email: '',
@@ -38,8 +39,8 @@ export const SignupForm = () => {
         <AuthForm>
           <AuthInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
           <AuthInput input="name" type="text" value={values.name} onChange={handleChange} error={errors.name} />
-          <AuthInput input="password" type="password" value={values.password} onChange={handleChange} error={errors.password} />
-          <AuthInput input="confirm" type="password" value={values.confirm} onChange={handleChange} error={errors.confirm} />
+          <AuthPassword input="password" value={values.password} onChange={handleChange} error={errors.email}  />
+          <AuthPassword input="confirm" value={values.confirm} onChange={handleChange} error={errors.confirm}  />
           <AuthCheckbox value={values.acceptedTerms} name="acceptedTerms" onChange={handleChange} setShowModal={() => setShowModal(true)} />
           <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Create an account" width="100%" />
         

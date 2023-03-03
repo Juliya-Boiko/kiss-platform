@@ -18,7 +18,8 @@ export const loginUserAsync = async (values) => {
   return data;
 };
 
-export const logoutUserAsync = async () => {
+export const logoutUserAsync = async (value) => {
+  token.set(value);
   await axios.post('/auth/logout');
   token.unset();
   return true;

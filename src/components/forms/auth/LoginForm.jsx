@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import { AuthForm } from "./common/AuthForm.styled";
 import { AuthInput } from "components/forms/auth/common/AuthInput";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
+import { AuthPassword } from "./common/AuthPassword";
 
 const initialValues = {
   email: '',
@@ -27,7 +28,7 @@ export const LoginForm = () => {
       {({ values, handleChange, errors, isValid, dirty }) => (
         <AuthForm>
           <AuthInput input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
-          <AuthInput input="password" type="password" value={values.password} onChange={handleChange} error={errors.password} />
+          <AuthPassword input="password" value={values.password} onChange={handleChange} error={errors.email}  />
           <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Login" width="100%" />
         </AuthForm>
       )}

@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from 'redux/auth/authOperations';
 import styled from "styled-components";
 
@@ -29,11 +29,12 @@ const BtnTransparent = styled.button`
 `;
 
 export const ButtonLogout = ({ type }) => {
+  const token = useSelector(state => state.auth.token);
   const dispatch = useDispatch();
   
   const logoutHandler = () => {
-    console.log('logout click');
-    dispatch(logoutUser());
+    // console.log('logout click');
+    dispatch(logoutUser(token));
   }; 
 
   return (
