@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteUser } from "redux/auth/authOperations";
 import { ProfileForm } from "components/forms/auth/ProfileForm";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { ButtonDelete } from "components/buttons/ButtonDelete";
@@ -47,6 +48,7 @@ display: block;
 
 const ProfilePage = () => {
   const user = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -54,9 +56,10 @@ const ProfilePage = () => {
         <Avatar src={user.avatar} alt="" />
         <div><MdOutlinePhotoCamera size={20}/> Change avatar</div>
       </Wrapper>
+      
       <ProfileForm />
 
-      <ButtonDelete title="Delete account" onClick={() => console.log("Delete account")} />
+      <ButtonDelete title="Delete account" onClick={() => dispatch(deleteUser(user.token))} />
     </Container>
   );
 };

@@ -55,3 +55,13 @@ export const updateUserAsync = async (values) => {
   });
   return data.name;
 };
+
+export const deleteUserAsync = async (value) => {
+  token.set(value);
+  try {
+    const data = await axios.delete('auth/');
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}

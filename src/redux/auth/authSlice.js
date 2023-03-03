@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signupUser, loginUser, logoutUser, forgotPassword, getUserId, changePassword, updateUser } from "./authOperations";
+import {
+  signupUser, loginUser, logoutUser, forgotPassword,
+  getUserId, changePassword, updateUser, deleteUser
+} from "./authOperations";
 
 const initialState = {
   avatar: null,
@@ -54,6 +57,13 @@ export const authSlice = createSlice({
     })
     .addCase(updateUser.fulfilled, (state, { payload }) => {
       state.name = payload;
+    })
+    .addCase(deleteUser.fulfilled, (state) => {
+      state.avatar = null;
+      state.name = '';
+      state.userId = null;
+      state.token = null;
+      state.isLogged = false;
     })
   }
 })

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { profileSchema } from "schemas/profileSchema";
-import { Formik, Form } from "formik";
-import { ButtonPrimary } from "components/buttons/ButtonPrimary";
-import { AuthInput } from "./common/AuthInput";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "redux/auth/authOperations";
 import { useNavigate } from "react-router-dom";
+import { Formik, Form } from "formik";
+import { ButtonPrimary } from "components/buttons/ButtonPrimary";
+import { AuthInput } from "./common/AuthInput";
 
 const CustomForm = styled(Form)`
   margin-bottom: ${p => p.theme.spaces.m};
