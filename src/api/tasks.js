@@ -42,3 +42,14 @@ export const updateTaskAsync = async (values) => {
     console.log('error--->', error);
   }
 };
+
+export const deleteTaskAsync = async (values) => {
+  // console.log('deleteTaskAsync--->', values);
+  try {
+    token.set(values.token);
+    const data = await axios.delete(`/tasks/${values._id}`);
+    return data;
+  } catch (error) {
+    console.log('error--->', error);
+  }
+};
