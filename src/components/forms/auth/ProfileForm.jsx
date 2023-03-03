@@ -8,6 +8,7 @@ import { updateUser } from "redux/auth/authOperations";
 import { useNavigate } from "react-router-dom";
 
 const CustomForm = styled(Form)`
+  margin-bottom: ${p => p.theme.spaces.m};
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     width: 400px;
   }
