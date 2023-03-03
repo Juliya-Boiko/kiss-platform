@@ -9,6 +9,7 @@ import { Cards } from "components/Cards/Cards";
 import { TasksTable } from "components/TasksTable/TasksTable";
 import { Chart } from "components/Chart/Chart";
 import styled from "styled-components";
+import { Loader } from "components/Loader/Loader";
 
 const Container = styled.div`
   display: flex;
@@ -30,10 +31,13 @@ const StatisticPage = () => {
   const token = useSelector(state => state.auth.token);
   const items = useSelector(state => state.tasks.items);
   const [filteredItemd, setFilteredItems] = useState(items);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setLoading(true);
     dispatch(getAllTasks(token));
+    setLoading(false);
   }, [dispatch, token]);
 
   useEffect(() => {
@@ -49,13 +53,16 @@ const StatisticPage = () => {
 
       <FilterForm />
 
-      <Container>
-        <Content>
-          <Cards items={items} />
-          <TasksTable items={filteredItemd} />
-        </Content>
-        <Chart items={items} />
-      </Container>
+      {loading
+        ? <Loader size="40" colored />
+        : <Container>
+            <Content>
+              <Cards items={items} />
+              <TasksTable items={filteredItemd} />
+            </Content>
+            <Chart items={items} />
+          </Container>
+      }
     </div>
   );
 };

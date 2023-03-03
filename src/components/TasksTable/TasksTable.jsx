@@ -72,7 +72,7 @@ export const TasksTable = ({ items }) => {
       </Header>
       <Body>
         {items.length === 0
-          ? <tr><td></td><Label>You dont have task with such title</Label><td></td></tr>
+          ? <tr><td></td><Label>NO DATA</Label><td></td></tr>
           : <>
             { items.map((item) => (
               <tr key={item._id}>

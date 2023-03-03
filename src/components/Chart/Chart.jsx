@@ -29,6 +29,7 @@ const Label = styled.li`
     margin-right: 7px;
   }
   span {
+    margin-left: 5px;
     font-weight: ${p => p.theme.fontWeight.bold};
   }
 `;
@@ -36,21 +37,28 @@ const Label = styled.li`
 export const Chart = ({ items }) => {
   const data = chartFormatter(items);
 
+  const total = data.reduce(function (acc, item) {
+    return acc + item.value;
+  }, 0);
+
   return (
     <Container>
       <Wrapper>
-        <PieChart
-          data={data}
-          lineWidth={30}
-          style={{ height: '150px' }} 
-        />
+        {total
+          ? <PieChart
+              data={data}
+              lineWidth={30}
+              style={{ height: '150px' }} 
+            />
+          : <PieChart data={[{ title: '', value: 1, color: '#858FA6' }]} lineWidth={30} style={{ height: '150px' }}  />
+        }
         <ul>
           {data.map(item => {
             return <Label
               key={item.title}
             >
               <BiRadioCircle color={item.color} size={12} />
-              {item.title} <span>{item.value}</span>
+              {item.title}  <span>{item.value}</span>
             </Label>
           })}
         </ul>

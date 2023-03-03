@@ -22,6 +22,8 @@ const Button = styled.button`
 
 export const ButtonPrimary = ({ type, disabled, title, width, onClick }) => {
   return (
-    <Button type={type} disabled={disabled} width={width} onClick={onClick}>{title}</Button>
+    <Button type={type} disabled={disabled} width={width} onClick={onClick}>
+      {title}
+    </Button>
   );
 }

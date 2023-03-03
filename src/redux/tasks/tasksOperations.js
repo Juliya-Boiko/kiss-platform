@@ -12,7 +12,6 @@ export const getAllTasks = createAsyncThunk(
   async (value) => {
     try {
       const data = await getAllTasksAsync(value);
-      Notify.success('Get all tasks successful!');
       return data;
     } catch (error) {
       Notify.failure(`${error.response.data.message}`);

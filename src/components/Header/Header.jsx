@@ -7,7 +7,6 @@ import { useState } from "react";
 import { Menu } from "components/Menu/Menu";
 import { User } from "./User";
 import { Scrumbs } from "components/Scrumbs/Scrumbs";
-// import { Scrumbs } from "../Scrumbs/Scrumbs";
 import { DesktopContainer } from "components/common/MediaContainers.styled";
 import { MobileContainer } from "components/common/MediaContainers.styled";
 
@@ -16,7 +15,6 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: ${p => p.theme.spaces.s} 0 ${p => p.theme.spaces.xxs};
-  //background-color: lightyellow;
 `;
 
 export const Header = () => {

@@ -8,6 +8,7 @@ import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { AuthInput } from "./common/AuthInput";
 
 const CustomForm = styled(Form)`
+  width: 100%;
   margin-bottom: ${p => p.theme.spaces.m};
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     width: 400px;

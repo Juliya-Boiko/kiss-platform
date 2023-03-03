@@ -41,6 +41,7 @@ export const logoutUser = createAsyncThunk(
   async (value) => {
     try {
       await logoutUserAsync(value);
+      Notify.success('Logout successful!');
     } catch (error) {
       Notify.failure(`${error.response.data.message}`);
     }
@@ -65,8 +66,7 @@ export const getUserId = createAsyncThunk(
       const data = await getUserAsync(value);
       return data;
     } catch (error) {
-      console.log('getUserId ->', error);
-      // Notify.failure(error.message);
+      Notify.failure(`${error.response.data.message}`);
     }
   }
 );

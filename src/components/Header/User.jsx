@@ -36,11 +36,15 @@ export const User = () => {
 
   return (
     <Container>
-      <Info>
-        <p>Hi, {user.name}</p>
-        <ButtonLogout />
-      </Info>
-      <Avatar src={user.avatar} alt="Avatar" />
+      {user &&
+        <>
+          <Info>
+            <p>Hi, {user.name}</p>
+            <ButtonLogout />
+          </Info>
+          <Avatar src={user.avatar} alt="Avatar" />
+        </>
+      }
     </Container>
   );
 };
