@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { signupUserAsync, loginUserAsync, logoutUserAsync,
-  forgotPasswordAsync, getUserAsync, changePasswordAsync
+  forgotPasswordAsync, getUserAsync, changePasswordAsync, updateUserAsync
 } from "api/auth";
 import { Notify } from 'notiflix';
 
@@ -81,3 +81,15 @@ export const changePassword = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (values) => {
+    try {
+      const data = await updateUserAsync(values);
+      return data;
+    } catch (error) {
+      Notify.failure(`${error.response.data.message}`);
+    }
+  }
+)

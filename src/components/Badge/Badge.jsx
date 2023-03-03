@@ -14,6 +14,7 @@ const Container = styled.span`
   background-color: ${p => p.colors.bgColor};
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     font-size: 12px;
+    padding: 5px ${p => p.theme.spaces.xxs};
   }
 `;
 

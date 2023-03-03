@@ -41,6 +41,9 @@ const Body = styled.tbody`
   td {
     min-width: 70px;
     padding: 10px 3px;
+    @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+      min-width: 100px;
+    }
   }
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     font-size: ${p => p.theme.fontSize.s};
@@ -50,9 +53,11 @@ const Body = styled.tbody`
 const Title = styled(Link)`
   text-decoration: underline;
   color: inherit;
-  @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
-    min-width: 450px;
-  }
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 `;
 
 export const TasksTable = ({ items }) => {

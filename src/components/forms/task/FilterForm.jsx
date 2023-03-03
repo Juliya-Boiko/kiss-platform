@@ -9,7 +9,7 @@ const CustomForm = styled(Form)`
   width: 100%;
   margin: 0 0 ${p => p.theme.spaces.xs} 0;
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
-    width: 350px;
+    width: 450px;
   }
 `;
 
@@ -24,6 +24,9 @@ const Input = styled.input`
   outline: 1px solid ${p => p.theme.colors.grayScale.gray40}; 
   color: ${p => p.theme.colors.grayScale.gray40};
   background-color: ${p => p.theme.colors.grayScale.gray5};
+  @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+    font-size: ${p=> p.theme.fontSize.s};
+  }
 `;
 
 const SearchBtn = styled.button`

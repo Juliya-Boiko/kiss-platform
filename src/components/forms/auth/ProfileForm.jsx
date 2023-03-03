@@ -3,6 +3,9 @@ import { profileSchema } from "schemas/profileSchema";
 import { Formik, Form } from "formik";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { AuthInput } from "./common/AuthInput";
+import { useSelector, useDispatch } from "react-redux";
+import { updateUser } from "redux/auth/authOperations";
+import { useNavigate } from "react-router-dom";
 
 const CustomForm = styled(Form)`
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
@@ -16,12 +19,17 @@ const initialValues = {
 };
 
 export const ProfileForm = () => {
+  const token = useSelector(state => state.auth.token);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const submitHandler = (values) => {
-    console.log(values);
-    // const { email, name, password } = values;
-    // const userData = { email, name, password };
-    // dispatch(signupUser(userData));
+    const data = {
+      token,
+      ...values
+    };
+    dispatch(updateUser(data));
+    navigate("/homepage/statistic");
   };
 
   return (

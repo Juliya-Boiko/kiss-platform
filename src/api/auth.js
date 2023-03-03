@@ -45,3 +45,12 @@ export const changePasswordAsync = async (values) => {
   token.set(data.token);
   return data;
 };
+
+export const updateUserAsync = async (values) => {
+  const { name, email } = values;
+  token.set(values.token);
+  const { data } = await axios.patch('/auth/update', {
+    name, email
+  });
+  return data.name;
+};
