@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Formik, Form } from "formik";
 import { BiSearch } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { filter } from "redux/tasks/tasksSlice";
 
 const CustomForm = styled(Form)`
   position: relative;
@@ -45,15 +47,10 @@ const initialValues = {
 }
 
 export const FilterForm = () => {
+  const dispatch = useDispatch();
 
-  const submitHandler = async (value) => {
-    console.log(value);
-    // const data = {
-    //   token,
-    //   ...values
-    // }
-    // dispatch(addTask(data));
-    // navigate("/homepage/statistic");
+  const submitHandler = ({ value }) => {
+    dispatch(filter(value));
   };
 
   return (

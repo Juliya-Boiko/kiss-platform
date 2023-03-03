@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getAllTasks } from "redux/tasks/tasksOperations";
@@ -6,7 +6,7 @@ import { Scrumbs } from "components/Scrumbs/Scrumbs";
 import { MobileContainer } from "components/common/MediaContainers.styled";
 import { FilterForm } from "components/forms/task/FilterForm";
 import { Cards } from "components/Cards/Cards";
-import { TasksList } from "components/TasksList/TasksList";
+import { TasksTable } from "components/TasksTable/TasksTable";
 import { Chart } from "components/Chart/Chart";
 import styled from "styled-components";
 
@@ -26,13 +26,20 @@ const Content = styled.div`
 `;
 
 const StatisticPage = () => {
+  const filter = useSelector(state => state.tasks.filter);
   const token = useSelector(state => state.auth.token);
   const items = useSelector(state => state.tasks.items);
+  const [filteredItemd, setFilteredItems] = useState(items);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllTasks(token));    
+    dispatch(getAllTasks(token));
   }, [dispatch, token]);
+
+  useEffect(() => {
+    const data = items.filter(item => item.title.toLowerCase().includes(filter));
+    setFilteredItems(data);
+  }, [filter, items]);
 
   return (
     <div>
@@ -45,11 +52,10 @@ const StatisticPage = () => {
       <Container>
         <Content>
           <Cards items={items} />
-          <TasksList items={items} />
+          <TasksTable items={filteredItemd} />
         </Content>
         <Chart items={items} />
       </Container>
-
     </div>
   );
 };

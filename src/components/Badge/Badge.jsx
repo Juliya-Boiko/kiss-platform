@@ -3,7 +3,6 @@ import { badgeColor } from "helpers/badgeColor";
 
 const Container = styled.span`
   display: block;
-  width: 100%;
   padding: 2px ${p => p.theme.spaces.xxs};
   text-align: center;
   font-weight: ${p => p.theme.fontWeight.regular};

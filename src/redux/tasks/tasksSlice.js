@@ -14,6 +14,13 @@ export const tasksSlice = createSlice({
       .addCase(getAllTasks.fulfilled, (state, { payload }) => {
         state.items = [...payload];
       })
-      .addCase(addTask.fulfilled, () => {})
+      .addCase(addTask.fulfilled, () => { })
+  },
+  reducers: {
+    filter: (state, { payload }) => {
+      return { ...state, filter: payload.toLowerCase() };
+    },
   }
 })
+
+export const { filter } = tasksSlice.actions;

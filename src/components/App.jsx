@@ -14,6 +14,7 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const StatisticPage = lazy(() => import('../pages/StatisticPage'));
 const CreatePage = lazy(() => import('../pages/CreatePage'));
 const ProfilePage = lazy(() => import('../pages/ProfilePage'));
+const TaskPage = lazy(() => import('../pages/TaskPage'));
 
 export const App = () => {
   return (
@@ -40,6 +41,7 @@ export const App = () => {
           <Route path="profile" element={<ProfilePage />} />
           <Route path="create" element={<CreatePage />} />
           <Route path="statistic" element={<StatisticPage />} />
+          <Route path="task/:id" element={<TaskPage />} />
         </Route>
       </Route>
     </Routes>
