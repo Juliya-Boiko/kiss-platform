@@ -21,3 +21,24 @@ export const addTaskAsync = async (values) => {
     console.log('error--->', error);
   }
 };
+
+export const getTaskByIdAsync = async (values) => {
+  try {
+    token.set(values.token);
+    const data = await axios.get(`/tasks/${values.id}`);
+    return data;
+  } catch (error) {
+    console.log('error--->', error);
+  }
+};
+
+export const updateTaskAsync = async (values) => {
+  const { title, descr, status } = values;
+  try {
+    token.set(values.token);
+    const data = await axios.put(`/tasks/${values.id}`, { title, descr, status });
+    return data;
+  } catch (error) {
+    console.log('error--->', error);
+  }
+};

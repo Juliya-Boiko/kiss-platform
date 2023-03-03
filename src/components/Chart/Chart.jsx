@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 const Label = styled.li`
   display: flex;
   align-items: center;
-  padding: 5px 0;
+  padding: 7px 0;
   font-weight: ${p => p.theme.fontWeight.regular};
   font-size: ${p => p.theme.fontSize.xs};
   line-height: 1.5;
@@ -42,7 +42,7 @@ export const Chart = ({ items }) => {
         <PieChart
           data={data}
           lineWidth={30}
-          style={{ height: '100px' }} 
+          style={{ height: '150px' }} 
         />
         <ul>
           {data.map(item => {
