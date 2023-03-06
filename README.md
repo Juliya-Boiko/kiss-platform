@@ -1,7 +1,8 @@
-# KISS PLATFORM -
+# 🗂 KISS PLATFORM
 
-Application for for creating, saving and updating tasks you need to do. It based
-on personal backend pet-progect KISS-PLATFORM-API
+Application for for creating, saving and updating tasks you need to do on
+personal backend pet-progect
+[KISS-PLATFORM-API](https://github.com/Juliya-Boiko/kiss-platform-api).
 
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
@@ -18,7 +19,7 @@ Also using libs:
 
 - AXIOS - for fetching data;
 - FORMIK - for user interactions;
-- FRAMER MOTION - to animate components;
+- FRAMER-MOTION - to animate components;
 - MOMENT - to formatting dates;
 - NOTIFLIX - for notifications;
 - REACT-LOADER-SPINNER - to hide loading process;
