@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { cardFormatter } from "helpers/cardFormatter";
+import { cardFormatter } from "helpers";
 
 const Container = styled.div`
   padding: 0 0 ${p => p.theme.spaces.s} 0;

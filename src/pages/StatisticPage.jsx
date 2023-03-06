@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getAllTasks } from "redux/tasks/tasksOperations";
+import { statusSorting, titleSorting, dateSorting } from "helpers";
 import { Scrumbs } from "components/Scrumbs/Scrumbs";
 import { MobileContainer } from "components/common/MediaContainers.styled";
 import { FilterForm } from "components/forms/task/FilterForm";
@@ -35,7 +36,7 @@ const StatisticPage = () => {
   const filter = useSelector(state => state.tasks.filter);
   const token = useSelector(state => state.auth.token);
   const items = useSelector(state => state.tasks.items);
-  const [filteredItemd, setFilteredItems] = useState(items);
+  const [filteredItems, setFilteredItems] = useState(items);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -49,6 +50,18 @@ const StatisticPage = () => {
     const data = items.filter(item => item.title.toLowerCase().includes(filter));
     setFilteredItems(data);
   }, [filter, items]);
+
+  const sortHandler = (column) => {
+    if (column === 'Status') {
+      setFilteredItems(statusSorting(filteredItems));
+    }
+    if (column === 'Title') {
+      setFilteredItems([...titleSorting(filteredItems)]);
+    }
+    if (column === 'Publish') {
+      setFilteredItems([...dateSorting(filteredItems)]);
+    }
+  };
 
   return (
     <div>
@@ -73,7 +86,7 @@ const StatisticPage = () => {
         : <Container>
             <Content>
               <Cards items={items} />
-              <TasksTable items={filteredItemd} />
+              <TasksTable items={filteredItems} sortHandler={sortHandler} />
             </Content>
             <Chart items={items} />
           </Container>

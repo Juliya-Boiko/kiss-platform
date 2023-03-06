@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { dateFormatter } from "helpers/dateFormatter";
+import { dateFormatter } from "helpers";
 import { Link } from "react-router-dom";
 import { Badge } from "components/Badge/Badge";
+import { BsArrowDownShort } from "react-icons/bs";
 
 const Label = styled.td`
   text-align: center;
@@ -61,7 +62,20 @@ const Title = styled(Link)`
 	-webkit-box-orient: vertical;
 `;
 
-export const TasksTable = ({ items }) => {
+const SortBtn = styled(motion.button)`
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  svg { display: none }
+  &:hover { 
+    svg { display: block }
+   }
+`;
+
+export const TasksTable = ({ items, sortHandler }) => {
   const columns = ["Status", "Title", "Publish"];
 
   return (
@@ -76,7 +90,18 @@ export const TasksTable = ({ items }) => {
     >
       <Header>
         <tr>
-          {columns.map((column) => (<th key={column}>{column}</th>))}
+          {columns.map((column) => (
+            <th key={column}>
+              <SortBtn
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.9 }}
+                type="button"
+                onClick={() => sortHandler(column)}
+              >
+                {column}
+                <BsArrowDownShort size="14" />
+              </SortBtn>
+            </th>))}
         </tr>
       </Header>
       <Body>

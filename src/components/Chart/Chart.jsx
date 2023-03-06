@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { PieChart } from 'react-minimal-pie-chart';
-import { chartFormatter } from "helpers/chartFormatter";
+import { chartFormatter } from "helpers";
 import { BiRadioCircle } from "react-icons/bi";
 
 

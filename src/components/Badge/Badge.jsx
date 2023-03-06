@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { badgeColor } from "helpers/badgeColor";
+import { badgeColor } from "helpers";
 
 const Container = styled.span`
   display: block;

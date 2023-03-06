@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { inputOutlineColor } from "helpers/inputOutlineColor";
-import { nameCapitalize } from "helpers/nameCapitalize";
 import { AuthError } from "./AuthError";
 import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
 
@@ -18,7 +17,9 @@ const Label = styled.label`
   left: ${p=> p.theme.fontSize.xs};
   top: 50%;
   transform: translateY(-50%);
-
+  &::first-letter {
+    text-transform: uppercase;
+  }
   font-weight: ${p=> p.theme.fontWeight.medium};
   font-size: ${p=> p.theme.fontSize.xs};
   line-height: 1.5;
@@ -74,7 +75,7 @@ export const AuthPassword = ({ input, value, onChange, error }) => {
         color={inputOutlineColor(showError, error, input)}
         onChange={onChange}
       />
-      <Label htmlFor={input}>{nameCapitalize(input)}</Label>
+      <Label htmlFor={input}>{input}</Label>
       {error && showError === input && <AuthError error={error} />}
       <Button type="button" onClick={() => setType(prevState => !prevState)}>
         {type ? <RxEyeClosed size={25} /> : <RxEyeOpen size={25} /> }

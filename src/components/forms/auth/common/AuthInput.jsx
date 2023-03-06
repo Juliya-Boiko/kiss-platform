@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { inputOutlineColor } from "helpers/inputOutlineColor";
-import { nameCapitalize } from "helpers/nameCapitalize";
+import { inputOutlineColor } from "helpers";
 import { AuthError } from "./AuthError";
 
 const Wrapper = styled.div`
@@ -17,7 +16,9 @@ const Label = styled.label`
   left: ${p=> p.theme.fontSize.xs};
   top: 50%;
   transform: translateY(-50%);
-
+  &::first-letter {
+    text-transform: capitalize;
+  }
   font-weight: ${p=> p.theme.fontWeight.medium};
   font-size: ${p=> p.theme.fontSize.xs};
   line-height: 1.5;
@@ -57,7 +58,7 @@ export const AuthInput = ({ input, type, value, onChange, error }) => {
         color={inputOutlineColor(showError, error, input)}
         onChange={onChange}
       />
-      <Label htmlFor={input}>{nameCapitalize(input)}</Label>
+      <Label htmlFor={input}>{input}</Label>
     {error && showError === input && <AuthError error={error} />}
     </Wrapper>
   );
