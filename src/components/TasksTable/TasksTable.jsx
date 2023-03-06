@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { dateFormatter } from "helpers/dateFormatter";
 import { Link } from "react-router-dom";
 import { Badge } from "components/Badge/Badge";
@@ -7,7 +8,7 @@ const Label = styled.td`
   text-align: center;
 `;
 
-const CustomTable = styled.table`
+const CustomTable = styled(motion.table)`
   width: 100%;
 `;
 
@@ -64,7 +65,15 @@ export const TasksTable = ({ items }) => {
   const columns = ["Status", "Title", "Publish"];
 
   return (
-    <CustomTable>
+    <CustomTable
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1,
+        delay: 2,
+        ease: [0.5, 0.71, 1, 1],
+      }}
+    >
       <Header>
         <tr>
           {columns.map((column) => (<th key={column}>{column}</th>))}
@@ -74,12 +83,21 @@ export const TasksTable = ({ items }) => {
         {items.length === 0
           ? <tr><td></td><Label>NO DATA</Label><td></td></tr>
           : <>
-            { items.map((item) => (
-              <tr key={item._id}>
+            { items.map((item, idx) => (
+              <motion.tr
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: ( 2 + idx / 10),
+                  ease: [0.5, 0.71, 1, 1],
+                }}
+                key={item._id}
+              >
                 <td><Badge status={item.status} /></td>
                 <td><Title to={`/homepage/task/${item._id}`}>{item.title}</Title></td>
                 <td style={{ textAlign: 'center' }}>{dateFormatter(item.updatedAt)}</td>
-              </tr>
+              </motion.tr>
             ))}
           </>
          }

@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   display: block;
   width: ${p => p.width};
   padding: ${p => p.theme.spaces.xxs} 0;
@@ -22,6 +23,15 @@ const Button = styled.button`
 
 export const ButtonSecondary = ({ type, disabled, title, width, onClick }) => {
   return (
-    <Button type={type} disabled={disabled} width={width} onClick={onClick}>{title}</Button>
+    <Button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.9 }}
+      type={type}
+      disabled={disabled}
+      width={width}
+      onClick={onClick}
+    >
+      {title}
+    </Button>
   );
 }

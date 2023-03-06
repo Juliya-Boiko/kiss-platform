@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +15,14 @@ const Button = styled.button`
 
 export const ButtonIcon = ({ children, onClick, color }) => {
   return (
-    <Button type="button" onClick={onClick} color={color} >{children}</Button>
+    <Button
+      whileHover={{ rotate: 180 }}
+      whileTap={{ scale: 0.9 }}
+      type="button"
+      onClick={onClick}
+      color={color}
+    >
+      {children}
+    </Button>
   );
 };

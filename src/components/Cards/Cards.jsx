@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { cardFormatter } from "helpers/cardFormatter";
 
 const Container = styled.div`
@@ -15,7 +16,7 @@ const List = styled.ul`
   margin: -5px;
 `;
 
-const Card = styled.li`
+const Card = styled(motion.li)`
   width: calc(100% / 2 - 10px);
   display: flex;
   align-items: baseline;
@@ -62,8 +63,17 @@ export const Cards = ({ items }) => {
   return (
     <Container>
       <List>
-        {data.map(item => {
-          return <Card key={item.title}>
+        {data.map((item, idx) => {
+          return <Card
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              delay: (idx / 2),
+              ease: [0.5, 0.71, 1, 1],
+            }}
+            key={item.title}
+          >
             <Wrapper color={item.color}>{item.icon}</Wrapper>
             <p><span>{item.amount}</span> in {item.title} </p>
           </Card>

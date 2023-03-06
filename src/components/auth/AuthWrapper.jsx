@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import bgiImg from '../../images/auth-bgi.png';
 import retangleImg from '../../images/auth-retangle.png';
+import { motion } from "framer-motion";
 import { Logo } from "components/Logo/Logo";
 import { NavLink } from "react-router-dom";
 import { Section } from "./common/Section.styled";
+import { MotionWrapper } from "./common/MotionWrapper.styled";
 
 const Container = styled.div`
   width: 100%;
@@ -23,7 +25,7 @@ const Main = styled.div`
   }
 `;
 
-const Nav = styled.p`
+const Nav = styled(motion.p)`
   margin: 0 0 ${p => p.theme.spaces.s} 0 ;
   font-weight: ${p => p.theme.fontWeight.medium};
   font-size: ${p => p.theme.fontSize.xs};
@@ -59,7 +61,7 @@ const Image = styled.img`
   margin: 0 0 ${p => p.theme.spaces.m} 0 ;
 `;
 
-const Text = styled.p`
+const Text = styled(motion.p)`
   text-align: center;
   font-weight: ${p => p.weight};
   margin: 0 0 ${p => p.margin} 0 ;
@@ -72,17 +74,71 @@ export const AuthWrapper = ({ children, navTitle, navLink, navTo }) => {
     <Container>
       <Main>
         <Section>
-          <Nav>{navTitle} <Link to={navLink}>{navTo}</Link></Nav>
+          <Nav
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              ease: [0.5, 0.71, 1, 1],
+            }}
+          >
+            {navTitle} <Link to={navLink}>{navTo}</Link>
+          </Nav>
           <Logo width="166" heigth="66" margin="60px" />
-          <Text weight="400" margin="20px">Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias</Text>
-          {children}
+          <Text
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              delay: 0.2,
+              ease: [0.5, 0.71, 1, 1],
+            }}
+            weight="400"
+            margin="20px"
+          >
+            Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias
+          </Text>
+          <MotionWrapper
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              delay: 0.3,
+              ease: [0.5, 0.71, 1, 1],
+            }}
+          >
+            {children}
+          </MotionWrapper>
         </Section>
       </Main>
 
       <Addictional>
         <Image src={retangleImg} alt="Laptop" />
-        <Text weight="700" margin="20px">Revolutionizing the patent market</Text>
-        <Text weight="300" margin="0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia</Text>
+        <Text
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.4,
+            ease: [0.5, 0.71, 1, 1],
+          }}
+          weight="700"
+          margin="20px"
+        >
+          Revolutionizing the patent market
+        </Text>
+        <Text
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.4,
+            ease: [0.5, 0.71, 1, 1],
+          }}
+          weight="300"
+          margin="0"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia
+        </Text>
       </Addictional>
     </Container>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { taskSchema } from "schemas/taskSchema";
@@ -10,6 +11,8 @@ import { TaskArea } from "./common/TaskArea";
 import { ButtonSecondary } from "components/buttons/ButtonSecondary";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 
+const Wrapper = styled(motion.div)``;
+
 const CustomForm = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -18,7 +21,7 @@ const CustomForm = styled(Form)`
   }
 `;
 
-const Actions = styled.div`
+const Actions = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,15 +54,33 @@ export const CreateForm = () => {
       onSubmit={submitHandler}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
-        <CustomForm>
-          <TaskSelect error={errors.status} onChange={handleChange} />
-          <TaskInput input="title" value={values.title} onChange={handleChange} error={errors.title} />
-          <TaskArea name="descr" value={values.descr} onChange={handleChange} error={errors.descr}  />
-          <Actions>
-            <ButtonSecondary type='button' disabled={false} title='Cancel' width='130px' onClick={() => navigate("/homepage/statistic")} />
-            <ButtonPrimary type='submit' disabled={!isValid || !dirty} title='Save' width='130px' />
-          </Actions>
-        </CustomForm>
+        <Wrapper
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+            ease: [0.5, 0.71, 1, 1],
+          }}
+        >
+          <CustomForm>
+            <TaskSelect error={errors.status} onChange={handleChange} />
+            <TaskInput input="title" value={values.title} onChange={handleChange} error={errors.title} />
+            <TaskArea name="descr" value={values.descr} onChange={handleChange} error={errors.descr}  />
+            <Actions
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 1,
+                delay: 0.4,
+                ease: [0.5, 0.71, 1, 1],
+              }}
+            >
+              <ButtonSecondary type='button' disabled={false} title='Cancel' width='130px' onClick={() => navigate("/homepage/statistic")} />
+              <ButtonPrimary type='submit' disabled={!isValid || !dirty} title='Save' width='130px' />
+            </Actions>
+          </CustomForm>
+        </Wrapper>
       )}
     </Formik>
   );

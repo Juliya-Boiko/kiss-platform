@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { AuthInput } from "./common/AuthInput";
+import { MotionWrapper } from "components/auth/common/MotionWrapper.styled";
 
 const CustomForm = styled(Form)`
   width: 100%;
@@ -40,11 +41,22 @@ export const ProfileForm = () => {
       validationSchema={profileSchema}
       onSubmit={submitHandler}
     >
-      {({ values, handleChange, errors, isValid, dirty  }) => (
+      {({ values, handleChange, errors, isValid, dirty }) => (
+       
         <CustomForm>
-          <AuthInput id="name" input="name" type="text" value={values.name} onChange={handleChange} error={errors.name} />
-          <AuthInput id="email" input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
-          <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Update profile" width="100%" />
+           <MotionWrapper
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              delay: 0.2,
+              ease: [0.5, 0.71, 1, 1],
+            }}
+          >
+              <AuthInput id="name" input="name" type="text" value={values.name} onChange={handleChange} error={errors.name} />
+              <AuthInput id="email" input="email" type="email" value={values.email} onChange={handleChange} error={errors.email} />
+              <ButtonPrimary type="submit" disabled={!isValid || !dirty} title="Update profile" width="100%" />
+          </MotionWrapper>
         </CustomForm>
       )}
     </Formik>

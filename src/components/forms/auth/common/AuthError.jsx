@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { motion } from "framer-motion";
 
-const ErrorContainer = styled.div`
+const ErrorContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +19,14 @@ const ErrorIcon = styled(AiOutlineInfoCircle)`
 
 export const AuthError = ({ error }) => {
   return (
-    <ErrorContainer>
+    <ErrorContainer
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1,
+        ease: [0.5, 0.71, 1, 1],
+      }}
+    >
       <ErrorIcon size="15"/>
       <p>{error}</p>
     </ErrorContainer>

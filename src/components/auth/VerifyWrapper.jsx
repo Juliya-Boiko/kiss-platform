@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Section } from "./common/Section.styled";
 import { Logo } from "components/Logo/Logo";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { MotionWrapper } from "./common/MotionWrapper.styled";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   position: relative;
@@ -26,7 +28,7 @@ const Link = styled(NavLink)`
   }
 `;
 
-const Text = styled.p`
+const Text = styled(motion.p)`
   margin: 0 0 ${p => p.theme.spaces.xs} 0 ;
   font-weight: ${p => p.theme.fontWeight.regular};
   font-size: ${p => p.theme.fontSize.xs};
@@ -45,8 +47,28 @@ export const VerifyWrapper = ({ backTo, children }) => {
       <Link to={backTo}><IoArrowBackCircleOutline size={32} /></Link>
       <Section>
         <Logo width="166" heigth="66" margin="60px" />
-        <Text>Provident similique accusantium nemo autem. Veritati obcaecati tenetur iure eius earum ut molestias</Text>
-        {children}
+        <Text
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+            ease: [0.5, 0.71, 1, 1],
+          }}
+        >
+          Provident similique accusantium nemo autem. Veritati obcaecati tenetur iure eius earum ut molestias
+        </Text>
+        <MotionWrapper
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.3,
+            ease: [0.5, 0.71, 1, 1],
+          }}
+        >
+          {children}
+        </MotionWrapper>
       </Section>
     </Container>
   );

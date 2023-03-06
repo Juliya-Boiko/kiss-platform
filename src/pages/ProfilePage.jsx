@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteUser } from "redux/auth/authOperations";
 import { ProfileForm } from "components/forms/auth/ProfileForm";
@@ -11,7 +12,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   position: relative;
   margin: 0 auto ${p => p.theme.spaces.xs} auto;
   border-radius: 50%;
@@ -52,7 +53,15 @@ const ProfilePage = () => {
 
   return (
     <Container>
-      <Wrapper>
+      <Wrapper
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 1,
+          delay: 0.2,
+          ease: [0.5, 0.71, 1, 1],
+        }}
+      >
         <Avatar src={user.avatar} alt="" />
         <div><MdOutlinePhotoCamera size={20}/> Change avatar</div>
       </Wrapper>

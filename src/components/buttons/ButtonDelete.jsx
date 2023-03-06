@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   padding: ${p => p.theme.spaces.xxs};
   font-weight: ${p => p.theme.fontWeight.bold};
   font-size: ${p => p.theme.fontSize.xs};
@@ -14,6 +15,20 @@ const Button = styled.button`
 
 export const ButtonDelete = ({ title, onClick }) => {
   return (
-    <Button type="button" onClick={onClick}>{title}</Button>
+    <Button
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1,
+        delay: 0.3,
+        ease: [0.5, 0.71, 1, 1],
+      }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      type="button"
+      onClick={onClick}
+    >
+      {title}
+    </Button>
   );
 }

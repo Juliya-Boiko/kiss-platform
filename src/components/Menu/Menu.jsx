@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Backdrop } from "components/common/Backdrop.styled";
 import { Logo } from "components/Logo/Logo";
@@ -34,7 +35,15 @@ export const Menu = ({ onClick }) => {
       <Container>
         <Logo width="126" heigth="50" margin="0" />
 
-        <ul>
+        <motion.ul
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+            ease: [0.5, 0.71, 1, 1],
+          }}
+        >
           <Item>
             <ButtonNav onClick={() => navHandler("statistic")} title='Statistic'><RiDashboardLine size={30}/></ButtonNav>
           </Item>
@@ -44,7 +53,7 @@ export const Menu = ({ onClick }) => {
           <Item>
             <ButtonNav onClick={() => navHandler("profile")} title='Profile'><BiUserCircle size={30} /></ButtonNav>
           </Item>
-        </ul>
+        </motion.ul>
 
         <ButtonLogout type={'colored'}/>
       </Container>

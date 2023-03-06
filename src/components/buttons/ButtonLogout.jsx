@@ -1,8 +1,9 @@
+import styled from "styled-components";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from 'redux/auth/authOperations';
-import styled from "styled-components";
 
-const BtnColored = styled.button`
+const BtnColored = styled(motion.button)`
   display: block;
   width: 126px;
   padding: ${p => p.theme.spaces.xxs} 0;
@@ -17,7 +18,7 @@ const BtnColored = styled.button`
   cursor: pointer;
 `;
 
-const BtnTransparent = styled.button`
+const BtnTransparent = styled(motion.button)`
   padding: 0;
   font-weight: ${p => p.theme.fontWeight.bold};
   font-size: ${p => p.theme.fontSize.xs};
@@ -33,15 +34,35 @@ export const ButtonLogout = ({ type }) => {
   const dispatch = useDispatch();
   
   const logoutHandler = () => {
-    // console.log('logout click');
     dispatch(logoutUser(token));
   }; 
 
   return (
     <>
       { type === "colored"
-        ? <BtnColored type="button" onClick={logoutHandler}>Logout</BtnColored>
-        : <BtnTransparent type="button" onClick={logoutHandler}>Logout</BtnTransparent>
+        ? <BtnColored
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              delay: 0.3,
+              ease: [0.5, 0.71, 1, 1],
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            type="button"
+            onClick={logoutHandler}
+          >
+            Logout
+          </BtnColored>
+        : <BtnTransparent
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.9 }}
+            type="button"
+            onClick={logoutHandler}
+          >
+            Logout
+          </BtnTransparent>
       }
     </>
   );

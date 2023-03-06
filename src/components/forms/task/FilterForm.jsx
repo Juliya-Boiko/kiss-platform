@@ -1,13 +1,13 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { filter } from "redux/tasks/tasksSlice";
+import { useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import { BiSearch } from "react-icons/bi";
-import { useDispatch } from "react-redux";
-import { filter } from "redux/tasks/tasksSlice";
 
 const CustomForm = styled(Form)`
   position: relative;
   width: 100%;
-  margin: 0 0 ${p => p.theme.spaces.xs} 0;
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     width: 450px;
   }
@@ -29,7 +29,7 @@ const Input = styled.input`
   }
 `;
 
-const SearchBtn = styled.button`
+const SearchBtn = styled(motion.button)`
   position: absolute;
   top: 50%;
   right: 10px;
@@ -64,7 +64,13 @@ export const FilterForm = () => {
       {({ values, handleChange }) => (
         <CustomForm>
           <Input type="text" id="value" name="value" value={values.value} onChange={handleChange} /> 
-          <SearchBtn type="submit"><BiSearch size="26" /></SearchBtn>
+          <SearchBtn
+            whileHover={{ color: '#858FA6' }}
+            whileTap={{ color: '#559B95' }}
+            type="submit"
+          >
+            <BiSearch size="26" />
+          </SearchBtn>
         </CustomForm>
       )}
     </Formik>

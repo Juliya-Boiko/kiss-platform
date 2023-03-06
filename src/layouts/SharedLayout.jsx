@@ -5,7 +5,7 @@ import { Loader } from 'components/Loader/Loader';
 const SharedLayout = () => {
   return (
     <>
-      <Suspense fallback={<Loader size="70" colored />}>
+      <Suspense fallback={<Loader size="100" colored />}>
         <Outlet />
       </Suspense>
     </>

@@ -1,3 +1,5 @@
+import styled from "styled-components";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -8,7 +10,6 @@ import { FilterForm } from "components/forms/task/FilterForm";
 import { Cards } from "components/Cards/Cards";
 import { TasksTable } from "components/TasksTable/TasksTable";
 import { Chart } from "components/Chart/Chart";
-import styled from "styled-components";
 import { Loader } from "components/Loader/Loader";
 
 const Container = styled.div`
@@ -24,6 +25,10 @@ const Content = styled.div`
     width: 950px;
     margin-right: 60px;
   }
+`;
+
+const Wrapper = styled(motion.div)`
+  margin: 0 0 ${p => p.theme.spaces.xs} 0;
 `;
 
 const StatisticPage = () => {
@@ -51,7 +56,17 @@ const StatisticPage = () => {
         <Scrumbs />
       </MobileContainer>
 
-      <FilterForm />
+      <Wrapper
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 1,
+          delay: 4,
+          ease: [0.5, 0.71, 1, 1],
+        }}
+      >
+        <FilterForm />
+      </Wrapper>
 
       {loading
         ? <Loader size="40" colored />

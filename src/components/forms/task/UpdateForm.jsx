@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { taskSchema } from "schemas/taskSchema";
@@ -12,6 +13,7 @@ import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { ButtonDelete } from "components/buttons/ButtonDelete";
 import { Warning } from "components/Warning/Warning";
 import { Notify } from 'notiflix';
+import { MotionWrapper } from "components/auth/common/MotionWrapper.styled";
 
 const CustomForm = styled(Form)`
   display: flex;
@@ -21,7 +23,7 @@ const CustomForm = styled(Form)`
   }
 `;
 
-const Actions = styled.div`
+const Actions = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,12 +65,30 @@ export const UpdateForm = ({ values, token }) => {
       >
         {({ values, handleChange, errors, isValid, dirty }) => (
           <CustomForm>
-            <TaskSelect error={errors.status} onChange={handleChange} />
-            <TaskInput input="title" value={values.title} onChange={handleChange} error={errors.title} />
-            <TaskArea name="descr" value={values.descr} onChange={handleChange} error={errors.descr}  />
-            <Actions>
-              <ButtonSecondary type='button' disabled={false} title='Cancel' width='130px' onClick={() => navigate("/homepage/statistic")} />
-              <ButtonPrimary type='submit' disabled={!isValid || !dirty} title='Save' width='130px' />
+            <MotionWrapper
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 1,
+                delay: 0.2,
+                ease: [0.5, 0.71, 1, 1],
+              }}
+            >
+              <TaskSelect error={errors.status} onChange={handleChange} />
+              <TaskInput input="title" value={values.title} onChange={handleChange} error={errors.title} />
+              <TaskArea name="descr" value={values.descr} onChange={handleChange} error={errors.descr}  />
+            </MotionWrapper>
+            <Actions
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.3,
+                  ease: [0.5, 0.71, 1, 1],
+                }}
+              >
+                <ButtonSecondary type='button' disabled={false} title='Cancel' width='130px' onClick={() => navigate("/homepage/statistic")} />
+                <ButtonPrimary type='submit' disabled={!isValid || !dirty} title='Save' width='130px' />
             </Actions>
             <ButtonDelete title='Delete task' onClick={()=> setShowWarn(true)} />
           </CustomForm>

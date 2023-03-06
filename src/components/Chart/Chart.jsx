@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { PieChart } from 'react-minimal-pie-chart';
 import { chartFormatter } from "helpers/chartFormatter";
 import { BiRadioCircle } from "react-icons/bi";
@@ -11,7 +12,7 @@ const Container = styled.div`
   }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   padding: ${p => p.theme.spaces.s};
   border-radius: ${p => p.theme.spaces.xxs};
   box-shadow: ${p => p.theme.boxShadow.m};
@@ -43,7 +44,15 @@ export const Chart = ({ items }) => {
 
   return (
     <Container>
-      <Wrapper>
+      <Wrapper
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 1,
+          delay: 3,
+          ease: [0.5, 0.71, 1, 1],
+        }}
+      >
         {total
           ? <PieChart
               data={data}
