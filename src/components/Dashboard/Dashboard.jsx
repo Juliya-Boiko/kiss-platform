@@ -9,6 +9,7 @@ const Container = styled.div`
   display: none;
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     display: flex;
+    min-height: 100vh;
     width: 400px;
     flex-direction: column;
     align-items: center;

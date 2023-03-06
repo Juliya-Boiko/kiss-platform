@@ -6,7 +6,7 @@ import { Dashboard } from 'components/Dashboard/Dashboard';
 import { useSelector } from 'react-redux';
 
 const Container = styled.div`
-  height: 100%;
+  min-height: 100vh;
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     display: flex;
   }
