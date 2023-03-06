@@ -40,7 +40,7 @@ const Icon = styled(TbAlertTriangle)`
   color: ${p => p.theme.colors.support.warning};
 `;
 
-export const Warning = ({ onCancel, onConfirm }) => {
+export const Warning = ({ onCancel, onConfirm, children }) => {
   return (
     <Backdrop>
       <Container
@@ -48,12 +48,11 @@ export const Warning = ({ onCancel, onConfirm }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
-          //delay: 0.2,
           ease: [0.5, 0.71, 1, 1],
         }}
       >
         <Icon size={50} />
-        <p>You sure you want delete this task?</p>
+        {children}
         <Actions
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}

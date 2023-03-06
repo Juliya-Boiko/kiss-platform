@@ -1,6 +1,7 @@
 import { TfiClose } from "react-icons/tfi";
-import { Backdrop } from "components/common/Backdrop.styled";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { Backdrop } from "components/common/Backdrop.styled";
 
 const CloseButton = styled.button`
   position: absolute;
@@ -13,8 +14,10 @@ const CloseButton = styled.button`
 `;
 
 export const Modal = ({ children, onClick }) => {
+  const { theme: customTheme } = useSelector(state => state.theme);
+
   return (
-    <Backdrop>
+    <Backdrop bgColor={customTheme}>
       <CloseButton type="button" onClick={onClick}>
         <TfiClose size="16" />
       </CloseButton>

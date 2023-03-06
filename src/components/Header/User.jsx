@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { ButtonLogout } from "components/buttons/ButtonLogout";
+import { ButtonLogout } from "components/Logout/Logout";
 
 const Container = styled.div`
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {

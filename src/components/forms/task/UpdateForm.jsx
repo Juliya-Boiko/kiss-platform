@@ -13,7 +13,7 @@ import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { ButtonDelete } from "components/buttons/ButtonDelete";
 import { Warning } from "components/Warning/Warning";
 import { Notify } from 'notiflix';
-import { MotionWrapper } from "components/auth/common/MotionWrapper.styled";
+import { MotionWrapper } from "components/common/MotionWrapper.styled";
 
 const CustomForm = styled(Form)`
   display: flex;
@@ -94,7 +94,9 @@ export const UpdateForm = ({ values, token }) => {
           </CustomForm>
         )}
       </Formik>}
-      { showWarn && <Warning onCancel={() => setShowWarn(false)} onConfirm={deleteHandler} /> }
+      {showWarn && <Warning onCancel={() => setShowWarn(false)} onConfirm={deleteHandler}>
+        <p>You sure you want delete this task?</p>
+      </Warning> }
     </>
   );
 };

@@ -1,22 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { cardFormatter } from "helpers";
 
-const Container = styled.div`
-  padding: 0 0 ${p => p.theme.spaces.s} 0;
-  @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
-    padding: 0 0 ${p => p.theme.spaces.m} 0;
-  }
-`;
-
-const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: -5px;
-`;
-
-const Card = styled(motion.li)`
+const Item = styled(motion.li)`
   width: calc(100% / 2 - 10px);
   display: flex;
   align-items: baseline;
@@ -26,6 +11,7 @@ const Card = styled(motion.li)`
   font-size: 11px;
   color: ${p => p.theme.colors.grayScale.gray50};
   border: 0.684874px solid ${p => p.theme.colors.grayScale.gray5};
+  border-radius: ${p => p.theme.borderRadius.m};
   box-shadow: ${p => p.theme.boxShadow.s};
   span {
     font-weight: ${p => p.theme.fontWeight.bold};
@@ -57,28 +43,19 @@ const Wrapper = styled.span`
   }
 `;
 
-export const Cards = ({ items }) => {
-  const data = cardFormatter(items);
-
+export const Card = ({ item, idx }) => {
   return (
-    <Container>
-      <List>
-        {data.map((item, idx) => {
-          return <Card
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 1,
-              delay: (idx / 2),
-              ease: [0.5, 0.71, 1, 1],
-            }}
-            key={item.title}
-          >
-            <Wrapper color={item.color}>{item.icon}</Wrapper>
-            <p><span>{item.amount}</span> in {item.title} </p>
-          </Card>
-        })}
-      </List>
-    </Container>
+    <Item
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 1,
+      delay: (idx / 2),
+      ease: [0.5, 0.71, 1, 1],
+    }}
+  >
+    <Wrapper color={item.color}>{item.icon}</Wrapper>
+    <p><span>{item.amount}</span> in {item.title} </p>
+  </Item>
   );
 };

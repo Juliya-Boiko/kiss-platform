@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
 import { AuthInput } from "./common/AuthInput";
-import { MotionWrapper } from "components/auth/common/MotionWrapper.styled";
+import { MotionWrapper } from "components/common/MotionWrapper.styled";
 
 const CustomForm = styled(Form)`
   width: 100%;

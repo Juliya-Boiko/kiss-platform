@@ -6,7 +6,7 @@ export const theme = {
   colors: {
     brand: {
       white: '#ffffff',
-      // black: '#333333',
+      black: '#000000',
       // yellow: '#FFC639',
       green: '#6BC2BB',
       // red: '#DB4D45'
@@ -60,6 +60,7 @@ export const theme = {
   },
   borderRadius: {
     s: '5px',
+    m:'10px',
     l: '25px'
   },
   boxShadow: {

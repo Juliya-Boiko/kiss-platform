@@ -11,5 +11,5 @@ export const Backdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${p => p.theme.colors.brand.white};
+  background-color: ${p => p.bgColor ? p.theme.colors.brand.white : '#000000'};
 `;

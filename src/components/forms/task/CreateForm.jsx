@@ -10,8 +10,7 @@ import { TaskSelect } from "./common/TaskSelect";
 import { TaskArea } from "./common/TaskArea";
 import { ButtonSecondary } from "components/buttons/ButtonSecondary";
 import { ButtonPrimary } from "components/buttons/ButtonPrimary";
-
-const Wrapper = styled(motion.div)``;
+import { MotionWrapper } from "components/common/MotionWrapper.styled";
 
 const CustomForm = styled(Form)`
   display: flex;
@@ -54,7 +53,7 @@ export const CreateForm = () => {
       onSubmit={submitHandler}
     >
       {({ values, handleChange, errors, isValid, dirty }) => (
-        <Wrapper
+        <MotionWrapper
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -80,7 +79,7 @@ export const CreateForm = () => {
               <ButtonPrimary type='submit' disabled={!isValid || !dirty} title='Save' width='130px' />
             </Actions>
           </CustomForm>
-        </Wrapper>
+        </MotionWrapper>
       )}
     </Formik>
   );

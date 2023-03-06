@@ -1,26 +1,16 @@
 export const routes = {
-  INDEXPAGE: '/',
+  SHARED: '/',
   LOGIN: 'login',
   SIGNUP: 'signup',
   PASSWORD_FORGOT: 'forgot-password',
-  CODE_INSERT: 'insert-code',
+  CODE_INSERT: 'insert-code/:email',
   PASSWORD_CHANGE: 'change-password',
-
-  // INDEXPAGE: '/',
-
-  // SIGNUP: '/signup',
-  // LOGIN: '/login',
-
-  // PASSWORD_FORGOT: '/forgot-password',
-  // PASSWORD_INSERT: '/insert-password',
-  // PASSWORD_CHANGE: '/change-password',
-
+  HOMEPAGE: 'homepage',
   
+  PROFILE: 'profile',
+  STATISTIC: 'statistic',
+  TASK_CREATE: 'create',
+  TASK_EDIT: 'task/:id',
 
-  // HOMEPAGE: '/homepage',
-  // PROFILE: 'profile',
-  // CREATE_TASK: 'task-create',
-
-  // TASK_ID: '/task/:id',
-  // EDIT_TASK: '/task-edit',
+  DEFAULT: '*'
 };

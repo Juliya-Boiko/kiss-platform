@@ -25,11 +25,11 @@ const Input = styled.input`
   margin: 3px;
   text-align: center;
   outline: none;
-  border: 0.670481px solid #CED2DB;
+  border: 0.670481px solid ${p => p.theme.colors.grayScale.gray20};
   border-radius: 3.3524px;
-  font-weight: 400;
-  font-size: 14px;
-  color: #B6BCC9;
+  font-weight: ${p => p.theme.fontWeight.regular};
+  font-size: ${p => p.theme.fontSize.xs};
+  color: ${p => p.theme.colors.grayScale.gray30};
   &:focus {
     outline: 1px solid ${p => p.theme.colors.brand.green};
   }

@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { dateFormatter } from "helpers";
-import { Link } from "react-router-dom";
-import { Badge } from "components/Badge/Badge";
-import { BsArrowDownShort } from "react-icons/bs";
+import { TableHead } from "./TableHead";
+import { TableRow } from "./TableRow";
 
 const Label = styled.td`
   text-align: center;
@@ -52,29 +50,6 @@ const Body = styled.tbody`
   }
 `;
 
-const Title = styled(Link)`
-  text-decoration: underline;
-  color: inherit;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-`;
-
-const SortBtn = styled(motion.button)`
-  display: flex;
-  align-items: center;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-  svg { display: none }
-  &:hover { 
-    svg { display: block }
-   }
-`;
-
 export const TasksTable = ({ items, sortHandler }) => {
   const columns = ["Status", "Title", "Publish"];
 
@@ -91,17 +66,8 @@ export const TasksTable = ({ items, sortHandler }) => {
       <Header>
         <tr>
           {columns.map((column) => (
-            <th key={column}>
-              <SortBtn
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.9 }}
-                type="button"
-                onClick={() => sortHandler(column)}
-              >
-                {column}
-                <BsArrowDownShort size="14" />
-              </SortBtn>
-            </th>))}
+            <TableHead  key={column} column={column} onClick={() => sortHandler(column)} />
+          ))}
         </tr>
       </Header>
       <Body>
@@ -109,20 +75,7 @@ export const TasksTable = ({ items, sortHandler }) => {
           ? <tr><td></td><Label>NO DATA</Label><td></td></tr>
           : <>
             { items.map((item, idx) => (
-              <motion.tr
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 1,
-                  delay: ( 2 + idx / 10),
-                  ease: [0.5, 0.71, 1, 1],
-                }}
-                key={item._id}
-              >
-                <td><Badge status={item.status} /></td>
-                <td><Title to={`/homepage/task/${item._id}`}>{item.title}</Title></td>
-                <td style={{ textAlign: 'center' }}>{dateFormatter(item.updatedAt)}</td>
-              </motion.tr>
+              <TableRow key={item._id} item={item} idx={idx} />
             ))}
           </>
          }

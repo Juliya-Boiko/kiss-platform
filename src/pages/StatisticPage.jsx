@@ -8,7 +8,7 @@ import { statusSorting, titleSorting, dateSorting } from "helpers";
 import { Scrumbs } from "components/Scrumbs/Scrumbs";
 import { MobileContainer } from "components/common/MediaContainers.styled";
 import { FilterForm } from "components/forms/task/FilterForm";
-import { Cards } from "components/Cards/Cards";
+import { CardsList } from "components/CardsList/CardsList";
 import { TasksTable } from "components/TasksTable/TasksTable";
 import { Chart } from "components/Chart/Chart";
 import { Loader } from "components/Loader/Loader";
@@ -85,7 +85,7 @@ const StatisticPage = () => {
         ? <Loader size="40" colored />
         : <Container>
             <Content>
-              <Cards items={items} />
+              <CardsList items={items} />
               <TasksTable items={filteredItems} sortHandler={sortHandler} />
             </Content>
             <Chart items={items} />

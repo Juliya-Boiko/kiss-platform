@@ -1,9 +1,9 @@
+import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
-// import { Loader } from 'components/Loader/Loader';
 import { Header } from 'components/Header/Header';
 import { MainContainer } from 'components/common/MainContainer.styled';
-import styled from 'styled-components';
 import { Dashboard } from 'components/Dashboard/Dashboard';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
   height: 100%;
@@ -27,12 +27,13 @@ const Content = styled.div`
     padding-left: 60px;
   }
 `;
-// {/* <Loader size="40" /> */}
 
 const HomePage = () => {
+  const { theme } = useSelector(state => state.theme);
+  // console.log(theme);
 
   return (
-    <MainContainer>
+    <MainContainer bgColor={theme}>
       <Container>
         <Dashboard />
         <Content>

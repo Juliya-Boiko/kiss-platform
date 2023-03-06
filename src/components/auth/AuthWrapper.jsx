@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Logo } from "components/Logo/Logo";
 import { NavLink } from "react-router-dom";
 import { Section } from "./common/Section.styled";
-import { MotionWrapper } from "./common/MotionWrapper.styled";
+import { MotionWrapper } from "../common/MotionWrapper.styled";
 
 const Container = styled.div`
   width: 100%;

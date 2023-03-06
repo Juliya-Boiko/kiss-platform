@@ -53,6 +53,7 @@ export const forgotPassword = createAsyncThunk(
   async (values) => {
     try {
       await forgotPasswordAsync(values);
+      Notify.success('Check youre email!');
     } catch (error) {
       Notify.failure(`${error.response.data.message}`);
     }
@@ -100,6 +101,7 @@ export const deleteUser = createAsyncThunk(
   async (value) => {
     try {
       await deleteUserAsync(value);
+      Notify.success('Youre account deleted!');
     } catch (error) {
       Notify.failure(`${error.response.data.message}`);
     }

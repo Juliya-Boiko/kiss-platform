@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { routes } from "constants/routes";
 import { Logo } from "components/Logo/Logo";
 import { RiDashboardLine } from "react-icons/ri";
 import { BiUserCircle, BiAddToQueue } from "react-icons/bi";
@@ -44,13 +45,13 @@ export const Dashboard = () => {
       <Logo width="150" heigth="60" margin="143px" />
       <List>
         <li>
-          <Link to="statistic"><RiDashboardLine size={30}/><span>Statistic</span></Link>
+          <Link to={routes.STATISTIC}><RiDashboardLine size={30}/><span>Statistic</span></Link>
         </li>
         <li>
-          <Link to="create"><BiAddToQueue size={30} /><span>Create task</span></Link>
+          <Link to={routes.TASK_CREATE}><BiAddToQueue size={30} /><span>Create task</span></Link>
         </li>
         <li>
-          <Link to="profile"><BiUserCircle size={30} /><span>Profile</span></Link>
+          <Link to={routes.PROFILE}><BiUserCircle size={30} /><span>Profile</span></Link>
         </li>
       </List>
     </Container>

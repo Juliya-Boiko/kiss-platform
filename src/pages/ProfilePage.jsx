@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteUser } from "redux/auth/authOperations";
 import { ProfileForm } from "components/forms/auth/ProfileForm";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { ButtonDelete } from "components/buttons/ButtonDelete";
+import { Warning } from "components/Warning/Warning";
 
 const Container = styled.div`
   display: flex;
@@ -48,6 +50,7 @@ display: block;
 `;
 
 const ProfilePage = () => {
+  const [showWarn, setShowWarn] = useState(false);
   const user = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
@@ -68,7 +71,11 @@ const ProfilePage = () => {
       
       <ProfileForm />
 
-      <ButtonDelete title="Delete account" onClick={() => dispatch(deleteUser(user.token))} />
+      <ButtonDelete title="Delete account" onClick={() => setShowWarn(true)} />
+        
+      {showWarn && <Warning onCancel={() => setShowWarn(false)} onConfirm={()=> dispatch(deleteUser(user.token))}>
+        <p>You sure you want delete youre account ?</p>
+      </Warning> }
     </Container>
   );
 };

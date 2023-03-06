@@ -1,8 +1,14 @@
 import axios from "axios";
 import { BASE_URL } from "constants/baseUrl";
 import { token } from "./token";
+import { Notify } from 'notiflix';
 
 axios.defaults.baseURL = BASE_URL;
+
+Notify.init({
+  position: 'center-top',
+  distance: '40px',
+});
 
 export const signupUserAsync = async (values) => {
   const { name, email, password } = values;
@@ -35,7 +41,7 @@ export const getUserAsync = async (value) => {
     const { data } = await axios.get(`/auth/${value}`);
     return data;
   } catch (error) {
-    console.log('error--->', error);
+    Notify.failure(`${error.message}`);
   }
 };
 
@@ -58,10 +64,5 @@ export const updateUserAsync = async (values) => {
 
 export const deleteUserAsync = async (value) => {
   token.set(value);
-  try {
-    const data = await axios.delete('auth/');
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
+  await axios.delete('auth/');
 }

@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { routes } from 'constants/routes';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from 'hocs/PublicRoute';
 import { PrivateRoute } from 'hocs/PrivateRoute';
@@ -20,30 +21,30 @@ const TaskPage = lazy(() => import('../pages/TaskPage'));
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
+      <Route path={routes.SHARED} element={<SharedLayout />}>
         <Route index element={<Navigate to="/login" />} />
-        <Route path="login" element={
+        <Route path={routes.LOGIN} element={
           <PublicRoute restricted><LoginPage /></PublicRoute>}
         />
-        <Route path="signup" element={
+        <Route path={routes.SIGNUP} element={
           <PublicRoute restricted><SignupPage /></PublicRoute>}
         />
-        <Route path="forgot-password" element={
+        <Route path={routes.PASSWORD_FORGOT} element={
           <PublicRoute restricted><ForgotPasswordPage /></PublicRoute>}
         />
-        <Route path="insert-code/:email" element={
+        <Route path={routes.CODE_INSERT} element={
           <PublicRoute restricted><InsertCodePage /></PublicRoute>}
         />
-        <Route path="change-password" element={
+        <Route path={routes.PASSWORD_CHANGE} element={
           <PublicRoute restricted><ChangePasswordPage /></PublicRoute>}
         />
-        <Route path="homepage" element={<PrivateRoute><HomePage /></PrivateRoute>}>
+        <Route path={routes.HOMEPAGE} element={<PrivateRoute><HomePage /></PrivateRoute>}>
           <Route index element={<StatisticPage />} />
-          <Route path="profile" element={<ProfilePage />} />
-          <Route path="create" element={<CreatePage />} />
-          <Route path="statistic" element={<StatisticPage />} />
-          <Route path="task/:id" element={<TaskPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path={routes.PROFILE} element={<ProfilePage />} />
+          <Route path={routes.TASK_CREATE} element={<CreatePage />} />
+          <Route path={routes.STATISTIC} element={<StatisticPage />} />
+          <Route path={routes.TASK_EDIT} element={<TaskPage />} />
+          <Route path={routes.DEFAULT} element={<NotFoundPage />} />
         </Route>
       </Route>
     </Routes>

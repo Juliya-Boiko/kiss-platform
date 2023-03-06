@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import { Puff } from 'react-loader-spinner';
 import { theme } from 'style/theme';
-import styled from 'styled-components';
 
 const Container = styled.div`
   position: absolute;
@@ -13,12 +14,14 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 50;
-  background-color: white;
+  background-color: ${p => p.bgColor ? p.theme.colors.brand.white : p.theme.colors.brand.black };
 `;
 
 export const Loader = ({ size, colored }) => {
+  const { theme: customTheme } = useSelector(state => state.theme);
+
   return (
-    <Container>
+    <Container bgColor={customTheme}>
       <Puff
         height={size}
         width={size}
