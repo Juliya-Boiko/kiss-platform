@@ -4,6 +4,9 @@ Application for for creating, saving and updating tasks you need to do on
 personal backend pet-progect
 [KISS-PLATFORM-API](https://github.com/Juliya-Boiko/kiss-platform-api).
 
+KissPlatform is multipaged app with light/dark user theme, and adaptative design
+(mobile first, desktop - from 1920px)
+
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
