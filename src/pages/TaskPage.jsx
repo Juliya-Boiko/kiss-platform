@@ -31,7 +31,7 @@ const TaskPage = () => {
         <Scrumbs />
       </MobileContainer>
 
-      {loading ? <Loader size="40" colored /> : <UpdateForm values={initValues} token={token} />}
+      {loading ? <Loader size="100" colored /> : <UpdateForm values={initValues} token={token} />}
     </>
   );
 };
