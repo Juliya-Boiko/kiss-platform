@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import bgiImg from '../../images/auth-bgi.png';
-import retangleImg from '../../images/auth-retangle.png';
 import { motion } from "framer-motion";
 import { Logo } from "components/Logo/Logo";
 import { NavLink } from "react-router-dom";
 import { Section } from "./common/Section.styled";
 import { MotionWrapper } from "../common/MotionWrapper.styled";
+import { AuthSlider } from "./AuthSlider";
+import { AuthText } from "./common/AuthText.styled";
 
 const Container = styled.div`
   width: 100%;
@@ -57,18 +58,6 @@ const Addictional = styled.div`
   }
 `;
 
-const Image = styled.img`
-  margin: 0 0 ${p => p.theme.spaces.m} 0 ;
-`;
-
-const Text = styled(motion.p)`
-  text-align: center;
-  font-weight: ${p => p.weight};
-  margin: 0 0 ${p => p.margin} 0 ;
-  font-size: ${p => p.theme.fontSize.s};
-  line-height: 1.2;
-`;
-
 export const AuthWrapper = ({ children, navTitle, navLink, navTo }) => {
   return (
     <Container>
@@ -85,7 +74,7 @@ export const AuthWrapper = ({ children, navTitle, navLink, navTo }) => {
             {navTitle} <Link to={navLink}>{navTo}</Link>
           </Nav>
           <Logo width="166" heigth="66" margin="60px" />
-          <Text
+          <AuthText
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -97,7 +86,7 @@ export const AuthWrapper = ({ children, navTitle, navLink, navTo }) => {
             margin="20px"
           >
             Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias
-          </Text>
+          </AuthText>
           <MotionWrapper
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -113,32 +102,7 @@ export const AuthWrapper = ({ children, navTitle, navLink, navTo }) => {
       </Main>
 
       <Addictional>
-        <Image src={retangleImg} alt="Laptop" />
-        <Text
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 1,
-            delay: 0.4,
-            ease: [0.5, 0.71, 1, 1],
-          }}
-          weight="700"
-          margin="20px"
-        >
-          Revolutionizing the patent market
-        </Text>
-        <Text
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 1,
-            delay: 0.4,
-            ease: [0.5, 0.71, 1, 1],
-          }}
-          weight="300"
-          margin="0"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia
-        </Text>
+        <AuthSlider />
       </Addictional>
     </Container>
   );
