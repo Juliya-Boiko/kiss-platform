@@ -10,6 +10,7 @@ import { UserTheme } from "../UserTheme/UserTheme";
 import { Scrumbs } from "components/Scrumbs/Scrumbs";
 import { DesktopContainer } from "components/common/MediaContainers.styled";
 import { MobileContainer } from "components/common/MediaContainers.styled";
+import { DateLocal } from "./DateLocal";
 
 const Container = styled.header`
   display: flex;
@@ -41,6 +42,9 @@ export const Header = () => {
       </MobileContainer>
 
       <Actions>
+        <DesktopContainer>
+          <DateLocal />
+        </DesktopContainer>
         <DesktopContainer>
           <UserTheme />
         </DesktopContainer>

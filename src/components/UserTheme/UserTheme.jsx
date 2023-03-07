@@ -11,7 +11,13 @@ const Container = styled(motion.div)`
   span {
     color: ${p => p.theme.colors.grayScale.gray50};
   }
-  button { margin: 10px auto 0 auto }
+  button { 
+    margin: 10px auto 0 auto ;
+    @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
+      margin: 0;
+    }
+  }
+
   @media screen and (min-width: ${p => p.theme.breakpoints.desktop}) {
     margin-right: 30px;
     span { display: none }
